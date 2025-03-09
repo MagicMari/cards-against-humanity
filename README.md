@@ -1,19 +1,18 @@
 # Cards Against Humanity
 > Play CAH directly in your browser with the power of WebRTC
 
-# What is different to the original
-This is a visually updated version of the original code/game from ninest's cards-against-humanity. This includes a general new look, as well as new features
-
-
 ## Play in your browser
-1. Ask the host (black card reader) to share the room code
-2. The player should enter the room code and automatically join
+*Note: the site is hosted on [Glitch.com](glitch.com). It may take a few seconds to start up.*
+1. Ask the host (black card reader) to visit [this link](http://cah7.glitch.me/host)
+2. Ask the host to copy and send the link generated
 3. The players should automatically connect to the game
 
+Mobile devices recommended
+
 ## To do
-- [ ] Add player names
-- [ ] Add a scoring system
-- [ ] Add a scoreboard
+- [x] Shuffle cards. Currently, all users will get the same hand of white cards. The order of black cards is also the same.
+- [ ] Handle disconnected users better.
+- [ ] Find a way to "shuffle the deck and distribute cards" throught the sockets. Even when the cards are shuffled, there's a probability that two players get the same white cards. This will be a lot more difficult to fix.
 
 ## Built with
 - NodeJS + Express
@@ -23,12 +22,10 @@ This is a visually updated version of the original code/game from ninest's cards
 - PeerJS
 - Python (to generate arrays for the white and black cards)
 
-# How to host
-1. Install requirements
-2. `npm install` to install the needed packages in npm
-3. `npm start` to start the web game
-4. Visit localhost:3000/ to get to the landing page
-5. Have fun!
+## Support development
+Download the Brave Browser using [this link](https://brave.com/pjb276)! Download and use it for a month.
+
+It's like Chrome, but faster with built-in ad-blocking.
 
 ## License
 GNU AGPLv3

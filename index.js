@@ -5,6 +5,9 @@ const io = require('socket.io')(http)
 
 app.use(express.static(__dirname + '/public'))
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/home.html')
+})
 app.get('/host', (req, res) => {
   res.sendFile(__dirname + '/public/host.html')
 })
@@ -67,6 +70,10 @@ io.sockets.on('connection', (socket) => {
     console.log('Start game')
     roomInfo[data.roomID].gameStarted = true
     io.sockets.in(data.roomID).emit('start_game', {})
+  })
+
+  socket.on('blackCard', (data) => {
+    io.sockets.in(data.roomID).emit('blackCard', {blackCard: data.blackCard})
   })
 
   // on white card chosen

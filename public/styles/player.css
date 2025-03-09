@@ -2,6 +2,14 @@
   padding: var(--main-padding)
 }
 
+#black_card {
+  padding: var(--main-padding);
+  background-color: black;
+  color: white;
+  font-size:1em;
+  font-weight: 900;
+}
+
 .github {
   position: absolute;
 }

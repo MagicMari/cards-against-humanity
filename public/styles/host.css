@@ -4,6 +4,7 @@
     color: white;
     background-color: black;
     padding: var(--main-padding);
+    border-radius: 8px;
   }
   .container {
     margin: var(--main-padding);
@@ -31,7 +32,7 @@
       text-align: center;
     }
       #players {
-        font-size: 10em;
+        font-size: 2em;
         font-weight: 900;
       }
   
@@ -52,11 +53,20 @@ button {
   padding: var(--main-padding);
   background-color: black;
   color: white;
-  font-size: 3em;
+  font-size:1em;
   font-weight: 900;
 }
 
-
+.roomid {
+  color: black;
+  background-color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 2em;
+  border: 2px solid white;
+  border-radius: 8px;
+  display: inline-block;
+}
 
 #round_end {
   padding: var(--main-padding);

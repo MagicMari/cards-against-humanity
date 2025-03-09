@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Against Humanity - Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+    <div class="text-center p-6 max-w-2xl">
+        <h1 class="text-4xl font-bold mb-4">Cards Against Humanity Online</h1>
+        <p class="text-gray-300">Play the hilarious and outrageous card game with friends online.</p>
+    </div>
+    
+    <!-- Rules Section -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg text-center mb-6">
+        <h2 class="text-2xl font-semibold mb-3">How to Play</h2>
+        <ul class="text-gray-300 text-sm space-y-2">
+            <li>1. One player is the Card Czar and picks a black card.</li>
+            <li>2. Other players submit their funniest white card.</li>
+            <li>3. The Card Czar selects the funniest response.</li>
+            <li>4. The player with the most points wins!</li>
+        </ul>
+    </div>
+    
+    <!-- Join Room Section -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg text-center mb-6">
+        <h2 class="text-2xl font-semibold mb-3">Join a Game</h2>
+        <input id="roomCode" type="text" placeholder="Enter Room Code" 
+               class="w-full p-2 text-black rounded mb-4" />
+        <button onclick="joinRoom()" class="bg-green-500 px-4 py-2 rounded text-white font-bold">Join Room</button>
+    </div>
+    
+    <!-- Create Room Section -->
+    <div class="text-center">
+        <a href="/host" class="bg-blue-500 px-6 py-3 rounded text-white font-bold">Create a Room</a>
+    </div>
+
+    <script>
+        function joinRoom() {
+            let roomCode = document.getElementById("roomCode").value.trim();
+            if (roomCode) {
+                window.location.href = `/player#${roomCode}`;
+            } else {
+                alert("Please enter a valid room code.");
+            }
+        }
+    </script>
+</body>
+</html>
