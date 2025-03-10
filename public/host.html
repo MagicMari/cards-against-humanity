@@ -46,6 +46,14 @@
     <!-- White Cards Display -->
     <div id="white_cards" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 hidden"></div>
 
+    
+    <!-- Scoreboard (Hidden initially) -->
+    <div id="scoreboard" class="fixed right-4 top-1/4 w-64 bg-gray-800 p-4 hidden shadow-lg rounded-lg">
+      <h2 class="text-xl font-bold text-center mb-4">Scoreboard</h2>
+      <ul id="score_list" class="text-white"></ul>
+    </div>
+
+
     <!-- End of Round Section -->
     <div id="round_end" class="mt-6 hidden">
       <p class="message text-lg">A round has ended. Start another?</p>
@@ -65,12 +73,15 @@
     let $playerCount = document.querySelector('#players');
     let $gameStarting = document.querySelector('#game_starting');
     let $startGameButton = document.querySelector('#start_button');
+    let $scoreList = document.querySelector('#score_list');
+    let $scoreboard = document.querySelector('#scoreboard');
 
     let $blackCard = document.querySelector('#black_card');
     let $whiteCards = document.querySelector('#white_cards');
 
     let $roundEnd = document.querySelector('#round_end');
     let $nextRoundButton = document.querySelector('#next_round');
+    let players = {};
 
     // shuffle them
     let blackCards = shuffle(BLACK_CARDS);
@@ -99,12 +110,21 @@
       }
     })
 
+    socket.on('all_players', (data) => {
+      console.log("Players", data.players);
+      clearPlayerList();
+      data.players.forEach(player => {
+        addPlayer(player.name, player.score);
+      })
+    })
+
     $startGameButton.onclick = () => {
       round();
     }
 
     // called every round
     function round() {
+      $scoreboard.classList.remove('hidden');
       console.log("RoomID: ");
       console.log(roomID);
       socket.emit('start_game', {roomID: roomID}); // alerts players to start round()
@@ -132,6 +152,7 @@
               class="card"
               onclick='selectWhiteCard(this, "${whiteCardsReceived[i]}")'
             > ${unescape(whiteCardsReceived[i])}
+            <p id=player class=opacity-50>${data.player} </p>
             </div>
           `;
         }
@@ -166,6 +187,60 @@
       console.log('new round');
       //console.log(selectedCard);
       round();
+    }
+
+    // Add a player to the scoreboard
+    function addPlayer(playerName, points = 0) {
+      if (players[playerName]) return; // Prevent duplicates
+
+      players[playerName] = points;
+
+      let li = document.createElement('li');
+      li.id = `player-${playerName}`;
+      li.textContent = `${playerName}: ${points} Points`;
+      li.classList.add('p-2', 'hover:bg-gray-700', 'cursor-pointer');
+      $scoreList.appendChild(li);
+    }
+
+    // Update a player's score
+    function updateScore(playerName, newScore) {
+      if (!players[playerName]) return;
+
+      players[playerName] = newScore;
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.textContent = `${playerName}: ${newScore} Points`;
+    }
+
+    // Remove a player from the scoreboard
+    function removePlayer(playerName) {
+      if (!players[playerName]) return;
+
+      delete players[playerName];
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.remove();
+    }
+
+    function clearPlayerList() {
+      players.forEach(player =>{
+        delete players[player.name];
+        let li = document.getElementById(`player-${player.name}`);
+        if (li) li.remove();
+      });
+    }
+
+    // Highlight a player (e.g., current judge)
+    function highlightPlayer(playerName) {
+      document.querySelectorAll('#score_list li').forEach(li => {
+        li.classList.remove('bg-yellow-500', 'text-black');
+      });
+
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.classList.add('bg-yellow-500', 'text-black');
+  }
+  function clearPlayerList() {
+      Object.keys(players).forEach(playerName => {
+        removePlayer(playerName);
+      });
     }
   </script>
 

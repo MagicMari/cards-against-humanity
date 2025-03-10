@@ -81,7 +81,7 @@ io.sockets.on('connection', (socket) => {
   // on white card chosen
   socket.on('card_chosen', (data) => {
     console.log(data.card, data.roomID)
-    io.sockets.in(data.roomID).emit('card_chosen', {card: data.card})
+    io.sockets.in(data.roomID).emit('card_chosen', {card: data.card, player: data.player})
   })
 
   socket.on('playerJoin', (data) => {

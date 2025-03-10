@@ -82,6 +82,7 @@
 
     socket.on('all_players', (data) => {
       console.log("Players", data.players);
+      clearPlayerList();
       data.players.forEach(player => {
         addPlayer(player.name, player.score);
       })
@@ -93,6 +94,7 @@
     });
 
     function round() {
+      clearPlayerList();
       selectedCard = null;
       $handCards.innerHTML = '';
 
@@ -113,7 +115,7 @@
       selectedCard = el;
       currentCard = card;
 
-      socket.emit('card_chosen', { roomID: roomID, card: card });
+      socket.emit('card_chosen', { roomID: roomID, card: card, player: playerName});
 
       el.classList.add('border-4', 'border-red-500', 'opacity-50');
       el.classList.remove('cursor-pointer');
@@ -171,6 +173,12 @@
 
       let li = document.getElementById(`player-${playerName}`);
       if (li) li.classList.add('bg-yellow-500', 'text-black');
+    }
+
+    function clearPlayerList() {
+      Object.keys(players).forEach(playerName => {
+        removePlayer(playerName);
+      });
     }
   </script>
 
