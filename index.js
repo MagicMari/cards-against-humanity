@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
+const os = require('os')
 let players = {}
 
 app.use(express.static(__dirname + '/public'))
@@ -125,4 +126,20 @@ io.sockets.on('connection', (socket) => {
   })
 })
 
-http.listen(3000, () => console.log('listening on *:3000'))
+http.listen(3000, () => {
+  const address = http.address();
+  
+  // Log the address of the server (127.0.0.1 or ::)
+  const host = address.address === '::' ? 'localhost' : address.address
+  console.log(`Server listening on ${host}:${address.port}`)
+  
+  // Log all available network interfaces
+  const networkInterfaces = os.networkInterfaces()
+  Object.keys(networkInterfaces).forEach((interfaceName) => {
+    networkInterfaces[interfaceName].forEach((iface) => {
+      if (iface.family === 'IPv4') {
+        console.log(`IPv4 address on ${interfaceName}: ${iface.address}`)
+      }
+    })
+  })
+})
