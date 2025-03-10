@@ -68,6 +68,7 @@
 
     let players = {}; // Object to store player names & scores
     let $scoreList = document.querySelector('#score_list');
+    var playerList = [];
 
     // Join room
     socket.emit('join:room', { roomID: roomID, role: 'player' });
@@ -76,15 +77,18 @@
     socket.on('start_game', () => {
       $pregame.style.display = 'none';
       $scoreboard.classList.remove('hidden'); // Show scoreboard
+      //players = {};
       round();
       showElement($blackCard);
     });
 
     socket.on('all_players', (data) => {
-      console.log("Players", data.players);
       clearPlayerList();
+      playerList = [];
+      players = {};
       data.players.forEach(player => {
         addPlayer(player.name, player.score);
+        playerList.push(player);
       })
       highlightPlayer(playerName);
     })
@@ -94,7 +98,6 @@
     });
 
     function round() {
-      clearPlayerList();
       selectedCard = null;
       $handCards.innerHTML = '';
 
@@ -176,9 +179,7 @@
     }
 
     function clearPlayerList() {
-      Object.keys(players).forEach(playerName => {
-        removePlayer(playerName);
-      });
+      $scoreList.innerHTML = '';
     }
   </script>
 

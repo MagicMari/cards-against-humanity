@@ -82,6 +82,7 @@
     let $roundEnd = document.querySelector('#round_end');
     let $nextRoundButton = document.querySelector('#next_round');
     let players = {};
+    var playerList = [];
 
     // shuffle them
     let blackCards = shuffle(BLACK_CARDS);
@@ -89,6 +90,7 @@
     // other info
     var noPlayers;
     var whiteCardsReceived = [];
+    var whiteCardsPlayer = [];
 
     var socket = io();
     let roomID = Math.random().toString(36).substring(2);
@@ -111,10 +113,12 @@
     })
 
     socket.on('all_players', (data) => {
-      console.log("Players", data.players);
       clearPlayerList();
+      playerList = [];
+      players = {};
       data.players.forEach(player => {
         addPlayer(player.name, player.score);
+        playerList.push(player);
       })
     })
 
@@ -130,6 +134,7 @@
       socket.emit('start_game', {roomID: roomID}); // alerts players to start round()
       // reset data from previous rounds
       whiteCardsReceived = [];
+      whiteCardsPlayer = [];
 
       hideElement($pregame);
       hideElement($roundEnd);
@@ -144,15 +149,16 @@
 
     socket.on('card_chosen', (data) => {
       whiteCardsReceived.push(data.card);
+      whiteCardsPlayer.push(data.player);
       if (whiteCardsReceived.length == noPlayers) {
         for (i=0; i<whiteCardsReceived.length; i++) {
           // whiteCardsRec[i] is already escaped
           $whiteCards.innerHTML += `
-            <div
+            <div id=${whiteCardsPlayer[i]}
               class="card"
               onclick='selectWhiteCard(this, "${whiteCardsReceived[i]}")'
             > ${unescape(whiteCardsReceived[i])}
-            <p id=player class=opacity-50>${data.player} </p>
+            <p id=player class=opacity-50>${whiteCardsPlayer[i]} </p>
             </div>
           `;
         }
@@ -161,7 +167,7 @@
 
     function selectWhiteCard(el, card) {
       console.log('Selected ', card);
-
+      console.log("Card ID: ", el.querySelector("#player").innerText);
       // If a card was already selected, remove its selection
       if (selectedCard) {
         selectedCard.classList.remove('border-4', 'border-red-500', 'opacity-50');
@@ -186,6 +192,7 @@
     $nextRoundButton.onclick = function() {
       console.log('new round');
       //console.log(selectedCard);
+      socket.emit('add_point_to', {roomID: roomID, player: selectedCard.querySelector("#player").innerText, points: 1})
       round();
     }
 
@@ -238,10 +245,8 @@
       if (li) li.classList.add('bg-yellow-500', 'text-black');
   }
   function clearPlayerList() {
-      Object.keys(players).forEach(playerName => {
-        removePlayer(playerName);
-      });
-    }
+      $scoreList.innerHTML = '';
+  }
   </script>
 
 </body>

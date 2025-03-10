@@ -85,6 +85,12 @@ io.sockets.on('connection', (socket) => {
     io.sockets.in(data.roomID).emit('card_chosen', {card: data.card, player: data.player})
   })
 
+  socket.on('add_point_to', (data) => {
+    console.log(data.player, data.points)
+    addPlayerScore(data.roomID, data.player, data.points)
+    //io.sockets.in(data.roomID).emit('card_chosen', {card: data.card, player: data.player})
+  })
+
   socket.on('playerJoin', (data) => {
     console.log("Player Name:", data.playerName)
     console.log("User ID:", socket.conn.id)
@@ -105,6 +111,23 @@ io.sockets.on('connection', (socket) => {
     console.log("Updated Players:", players)
   })
 
+  function addPlayerScore(roomID, playerName, newScore) {
+    // Ensure the room exists
+    if (!players[roomID]) {
+        console.error("Room not found:", roomID);
+        return;
+    }
+
+    // Find the player by name
+    let player = players[roomID].find(p => p.name === playerName);
+    
+    if (player) {
+        player.score = player.score + newScore; // Update score
+        console.log(`Updated ${playerName}'s score to ${newScore}`);
+    } else {
+        console.error("Player not found:", playerName);
+    }
+}
   socket.on('disconnect', (data) => {
 
     let id = socket.conn.id
@@ -125,6 +148,7 @@ io.sockets.on('connection', (socket) => {
     // console.log(roomInfo)
   })
 })
+
 
 http.listen(3000, () => {
   const address = http.address();
