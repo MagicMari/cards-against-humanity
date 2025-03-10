@@ -1,7 +1,7 @@
 # Cards Against Humanity
 > Play CAH directly in your browser with the power of WebRTC
 
-# What is different to the original
+## What is different to the original
 This is a visually updated version of the original code/game from ninest's cards-against-humanity. This includes a general new look, as well as new features
 
 
@@ -14,6 +14,12 @@ This is a visually updated version of the original code/game from ninest's cards
 - [ ] Add player names
 - [ ] Add a scoring system
 - [ ] Add a scoreboard
+- [ ] Better shuffling
+- [ ] Selecting card packs
+- [ ] Docker containerization for fast deployment
+
+## Current limits
+- Only one blank/white card per black card
 
 ## Built with
 - NodeJS + Express
@@ -23,7 +29,7 @@ This is a visually updated version of the original code/game from ninest's cards
 - PeerJS
 - Python (to generate arrays for the white and black cards)
 
-# How to host
+## How to host
 1. Install requirements
 2. `npm install` to install the needed packages in npm
 3. `npm start` to start the web game
