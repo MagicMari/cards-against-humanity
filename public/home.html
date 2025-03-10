@@ -26,6 +26,8 @@
     <!-- Join Room Section -->
     <div class="bg-gray-800 p-6 rounded-lg shadow-md max-w-lg text-center mb-6">
         <h2 class="text-2xl font-semibold mb-3">Join a Game</h2>
+        <input id="playerName" type="text" placeholder="Enter name" 
+               class="w-full p-2 text-black rounded mb-4" />
         <input id="roomCode" type="text" placeholder="Enter Room Code" 
                class="w-full p-2 text-black rounded mb-4" />
         <button onclick="joinRoom()" class="bg-green-500 px-4 py-2 rounded text-white font-bold">Join Room</button>
@@ -35,12 +37,16 @@
     <div class="text-center">
         <a href="/host" class="bg-blue-500 px-6 py-3 rounded text-white font-bold">Create a Room</a>
     </div>
-
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        var socket = io();
         function joinRoom() {
             let roomCode = document.getElementById("roomCode").value.trim();
+            let name = document.getElementById("playerName").value.trim();
             if (roomCode) {
-                window.location.href = `/player#${roomCode}`;
+                //console.log("Player name: ", name);
+                socket.emit('playerJoin', {roomID: roomCode, playerName: name});
+                window.location.href = `/player#${roomCode}#${name}`;
             } else {
                 alert("Please enter a valid room code.");
             }

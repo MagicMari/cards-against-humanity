@@ -14,11 +14,12 @@
   <link rel="stylesheet" href="/styles/player.css">
   <link rel="stylesheet" href="/styles/cards.css">
 </head>
-<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+<body class="bg-gray-900 text-white flex min-h-screen">
 
-  <div class="container max-w-3xl text-center p-6">
+  <!-- Main Game Container -->
+  <div class="flex-grow flex flex-col items-center justify-center p-6">
     <!-- Pre-Game Message -->
-    <div id="pregame" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+    <div id="pregame" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
       <h1 class="text-2xl font-bold mb-2">Waiting for the Game to Start</h1>
       <p class="mb-4">Please ensure that you have entered the correct link.</p>
       <p class="mb-4">The game will start automatically when the host begins.</p>
@@ -30,14 +31,21 @@
       </div>
     </div>
 
-    <!-- Black Cards Section -->
-    <div id="black_card" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 rounded-lg hidden">
+    <!-- Black Card Section -->
+    <div id="black_card" class="mt-6 bg-gray-700 text-white p-6 rounded-lg text-center hidden">
       Waiting for the black card...
     </div>
 
     <!-- White Cards Section -->
-    <div id="white_cards" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    <div id="white_cards" class="mt-6 grid grid-cols-3 md:grid-cols-3 gap-4"></div>
   </div>
+
+  <!-- Scoreboard (Hidden initially) -->
+  <div id="scoreboard" class="w-64 bg-gray-800 p-4 hidden">
+    <h2 class="text-xl font-bold text-center mb-4">Scoreboard</h2>
+    <ul id="score_list" class="text-white"></ul>
+  </div>
+  
 
   <script src="./cards.js"></script>
   <script src="./functions.js"></script>
@@ -46,7 +54,8 @@
     let $pregame = document.querySelector('#pregame');
     let $handCards = document.querySelector('#white_cards');
     let $blackCard = document.querySelector('#black_card');
-    let selectedCard = null;  // Variable to track if a card has been selected
+    let $scoreboard = document.querySelector('#scoreboard');
+    let selectedCard = null;
     let currentCard = null;
 
     // Shuffle and draw initial hand
@@ -55,32 +64,41 @@
 
     var socket = io();
     let roomID = location.hash.split('#')[1];
+    let playerName = location.hash.split('#')[2];
+
+    let players = {}; // Object to store player names & scores
+    let $scoreList = document.querySelector('#score_list');
 
     // Join room
     socket.emit('join:room', { roomID: roomID, role: 'player' });
 
     // Start game event
-    socket.on('start_game', (data) => {
+    socket.on('start_game', () => {
       $pregame.style.display = 'none';
-
+      $scoreboard.classList.remove('hidden'); // Show scoreboard
       round();
       showElement($blackCard);
     });
 
+    socket.on('all_players', (data) => {
+      console.log("Players", data.players);
+      data.players.forEach(player => {
+        addPlayer(player.name, player.score);
+      })
+      highlightPlayer(playerName);
+    })
+
     socket.on('blackCard', (data) => {
-      $blackCard.innerHTML = data.blackCard; // Show black card
+      $blackCard.innerHTML = data.blackCard;
     });
 
     function round() {
-      // Reset the state of the selected card
-      selectedCard = null; // Clear selected card
-      $handCards.innerHTML = ''; // Clear previous hand of cards
+      selectedCard = null;
+      $handCards.innerHTML = '';
 
-      // Draw new hand of cards (shuffle and get new ones)
       let whiteCards = shuffle(WHITE_CARDS);
       handCards = whiteCards.splice(0, 6);
 
-      // Display cards
       handCards.forEach(card => {
         let cardElement = document.createElement('div');
         cardElement.classList.add('card', 'bg-white', 'text-black', 'p-4', 'rounded-lg', 'cursor-pointer', 'hover:bg-gray-200');
@@ -91,37 +109,69 @@
     }
 
     function chooseCard(el, card) {
-      // Prevent selection if a card is already chosen
       if (selectedCard) return;
-
-      // Mark the card as selected
       selectedCard = el;
       currentCard = card;
 
-      // Send chosen card to server
       socket.emit('card_chosen', { roomID: roomID, card: card });
 
-      // Highlight chosen card and visually indicate it's selected
-      el.classList.add('border-4', 'border-red-500', 'opacity-50');  // Make it appear as selected
-      el.classList.remove('cursor-pointer'); // Remove cursor pointer to prevent further clicks
-
-      // Optionally, add a message that the card has been selected
+      el.classList.add('border-4', 'border-red-500', 'opacity-50');
+      el.classList.remove('cursor-pointer');
       el.innerHTML = `<span class="text-green-500">Card Selected</span><br>${el.innerHTML}`;
 
-      // Disable all other cards
       let cards = document.querySelectorAll('.card');
       cards.forEach(cardEl => {
         if (cardEl !== el) {
-          cardEl.classList.add('opacity-50'); // Dim out unselected cards
-          cardEl.onclick = null; // Disable further clicks
+          cardEl.classList.add('opacity-50');
+          cardEl.onclick = null;
         }
       });
     }
 
-    // Handle errors
     socket.on('error', (data) => {
       alert(data.message);
     });
+
+    // Add a player to the scoreboard
+    function addPlayer(playerName, points = 0) {
+      if (players[playerName]) return; // Prevent duplicates
+
+      players[playerName] = points;
+
+      let li = document.createElement('li');
+      li.id = `player-${playerName}`;
+      li.textContent = `${playerName}: ${points} Points`;
+      li.classList.add('p-2', 'hover:bg-gray-700', 'cursor-pointer');
+      $scoreList.appendChild(li);
+    }
+
+    // Update a player's score
+    function updateScore(playerName, newScore) {
+      if (!players[playerName]) return;
+
+      players[playerName] = newScore;
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.textContent = `${playerName}: ${newScore} Points`;
+    }
+
+    // Remove a player from the scoreboard
+    function removePlayer(playerName) {
+      if (!players[playerName]) return;
+
+      delete players[playerName];
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.remove();
+    }
+
+    // Highlight a player (e.g., current judge)
+    function highlightPlayer(playerName) {
+      document.querySelectorAll('#score_list li').forEach(li => {
+        li.classList.remove('bg-yellow-500', 'text-black');
+      });
+
+      let li = document.getElementById(`player-${playerName}`);
+      if (li) li.classList.add('bg-yellow-500', 'text-black');
+    }
   </script>
 
 </body>
