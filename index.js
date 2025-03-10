@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
+let players = {}
 
 app.use(express.static(__dirname + '/public'))
 
@@ -70,6 +71,7 @@ io.sockets.on('connection', (socket) => {
     console.log('Start game')
     roomInfo[data.roomID].gameStarted = true
     io.sockets.in(data.roomID).emit('start_game', {})
+    io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
   })
 
   socket.on('blackCard', (data) => {
@@ -80,6 +82,26 @@ io.sockets.on('connection', (socket) => {
   socket.on('card_chosen', (data) => {
     console.log(data.card, data.roomID)
     io.sockets.in(data.roomID).emit('card_chosen', {card: data.card})
+  })
+
+  socket.on('playerJoin', (data) => {
+    console.log("Player Name:", data.playerName)
+    console.log("User ID:", socket.conn.id)
+    console.log("RoomID:", data.roomID)
+
+    // Check if the room exists in `players`
+    if (!(data.roomID in players)) {
+        players[data.roomID] = [] // Create a new room if it doesn't exist
+    }
+
+    // Add the player to the room
+    players[data.roomID].push({ 
+        name: data.playerName, 
+        id: socket.conn.id, 
+        score: 0 
+    })
+    //io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
+    console.log("Updated Players:", players)
   })
 
   socket.on('disconnect', (data) => {
