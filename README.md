@@ -14,9 +14,9 @@ This is a visually updated version of the original code/game from ninest's cards
 - [x] Add player names
 - [x] Add a scoring system
 - [x] Add a scoreboard
-- [ ] Better shuffling
+- [x] Better shuffling
 - [ ] Selecting card packs
-- [ ] Docker containerization for fast deployment
+- [x] Docker containerization for fast deployment
 
 ## Current limits
 - Only one blank/white card per black card

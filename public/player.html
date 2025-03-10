@@ -4,184 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#000000" />
 
-  <title>Player - CAH</title>
+  <title>Player - Cards Against Humanity</title>
 
+  <!-- Tailwind CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="/styles/normalize.css">
   <link rel="stylesheet" href="/styles/init.css">
   <link rel="stylesheet" href="/styles/player.css">
   <link rel="stylesheet" href="/styles/cards.css">
 </head>
-<body class="bg-gray-900 text-white flex min-h-screen">
+<body class="bg-gray-900 text-white flex flex-col min-h-screen items-center">
+
+  <!-- Header -->
+  <header class="w-full p-4 text-center bg-gray-800 shadow-lg">
+    <h1 id="header_home" class="text-3xl font-bold tracking-wide">Cards Against Humanity</h1>
+  </header>
 
   <!-- Main Game Container -->
-  <div class="flex-grow flex flex-col items-center justify-center p-6">
-    <!-- Pre-Game Message -->
-    <div id="pregame" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-      <h1 class="text-2xl font-bold mb-2">Waiting for the Game to Start</h1>
-      <p class="mb-4">Please ensure that you have entered the correct link.</p>
-      <p class="mb-4">The game will start automatically when the host begins.</p>
+  <main class="flex-grow flex flex-col items-center justify-center p-6 w-full">
 
-      <div class="mt-4">
-        <a href="https://github.com/themindstorm/cards-against-humanity" class="text-blue-400 hover:underline">
-          GitHub: themindstorm/cards-against-humanity
-        </a>
-      </div>
+    <!-- Pre-Game Message -->
+    <div id="pregame" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full max-w-lg">
+      <h2 class="text-2xl font-bold mb-2">Waiting for the Game to Start...</h2>
+      <p class="mb-4 text-gray-300">Ensure that you have entered the correct link.</p>
+      <p class="mb-4 text-gray-300">The game will start automatically when the host begins.</p>
     </div>
 
     <!-- Black Card Section -->
-    <div id="black_card" class="mt-6 bg-gray-700 text-white p-6 rounded-lg text-center hidden">
-      Waiting for the black card...
+    <div id="black_card" class="mt-6 bg-black text-white p-6 rounded-lg shadow-xl text-center hidden w-full max-w-md">
+      <p class="text-lg font-bold">Waiting for the black card...</p>
     </div>
 
     <!-- White Cards Section -->
-    <div id="white_cards" class="mt-6 grid grid-cols-3 md:grid-cols-3 gap-4"></div>
-  </div>
+    <div id="white_cards" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 w-full max-w-full sm:max-w-2xl">
+      <!-- Dynamically generated white cards will be inserted here -->
+    </div>
 
-  <!-- Scoreboard (Hidden initially) -->
-  <div id="scoreboard" class="w-64 bg-gray-800 p-4 hidden">
+  </main>
+
+  <!-- Scoreboard -->
+  <aside id="scoreboard" class="fixed right-4 top-20 w-64 bg-gray-800 p-4 rounded-lg shadow-lg hidden">
     <h2 class="text-xl font-bold text-center mb-4">Scoreboard</h2>
     <ul id="score_list" class="text-white"></ul>
-  </div>
-  
+  </aside>
 
-  <script src="./cards.js"></script>
+  <!-- Scripts -->
+  <script src="./red_pack.js"></script>
   <script src="./functions.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    let $pregame = document.querySelector('#pregame');
-    let $handCards = document.querySelector('#white_cards');
-    let $blackCard = document.querySelector('#black_card');
-    let $scoreboard = document.querySelector('#scoreboard');
-    let selectedCard = null;
-    let currentCard = null;
-
-    // Shuffle and draw initial hand
-    let whiteCards = shuffle(WHITE_CARDS);
-    let handCards = whiteCards.splice(0, 5);
-
-    var socket = io();
-    let roomID = location.hash.split('#')[1];
-    let playerName = location.hash.split('#')[2];
-
-    let players = {}; // Object to store player names & scores
-    let $scoreList = document.querySelector('#score_list');
-    var playerList = [];
-
-    // Join room
-    socket.emit('join:room', { roomID: roomID, role: 'player' });
-
-    // Start game event
-    socket.on('start_game', () => {
-      $pregame.style.display = 'none';
-      $scoreboard.classList.remove('hidden'); // Show scoreboard
-      //players = {};
-      round();
-      showElement($blackCard);
-    });
-
-    socket.on('all_players', (data) => {
-      clearPlayerList();
-      playerList = [];
-      players = {};
-      data.players.forEach(player => {
-        addPlayer(player.name, player.score);
-        playerList.push(player);
-      })
-      highlightPlayer(playerName);
-    })
-
-    socket.on('blackCard', (data) => {
-      $blackCard.innerHTML = data.blackCard;
-    });
-
-    function round() {
-      selectedCard = null;
-      $handCards.innerHTML = '';
-
-      let whiteCards = shuffle(WHITE_CARDS);
-      handCards = whiteCards.splice(0, 6);
-
-      handCards.forEach(card => {
-        let cardElement = document.createElement('div');
-        cardElement.classList.add('card', 'bg-white', 'text-black', 'p-4', 'rounded-lg', 'cursor-pointer', 'hover:bg-gray-200');
-        cardElement.innerHTML = card;
-        cardElement.onclick = () => chooseCard(cardElement, escape(card));
-        $handCards.appendChild(cardElement);
-      });
-    }
-
-    function chooseCard(el, card) {
-      if (selectedCard) return;
-      selectedCard = el;
-      currentCard = card;
-
-      socket.emit('card_chosen', { roomID: roomID, card: card, player: playerName});
-
-      el.classList.add('border-4', 'border-red-500', 'opacity-50');
-      el.classList.remove('cursor-pointer');
-      el.innerHTML = `<span class="text-green-500">Card Selected</span><br>${el.innerHTML}`;
-
-      let cards = document.querySelectorAll('.card');
-      cards.forEach(cardEl => {
-        if (cardEl !== el) {
-          cardEl.classList.add('opacity-50');
-          cardEl.onclick = null;
-        }
-      });
-    }
-
-    socket.on('error', (data) => {
-      alert(data.message);
-    });
-
-    // Add a player to the scoreboard
-    function addPlayer(playerName, points = 0) {
-      if (players[playerName]) return; // Prevent duplicates
-
-      players[playerName] = points;
-
-      let li = document.createElement('li');
-      li.id = `player-${playerName}`;
-      li.textContent = `${playerName}: ${points} Points`;
-      li.classList.add('p-2', 'hover:bg-gray-700', 'cursor-pointer');
-      $scoreList.appendChild(li);
-    }
-
-    // Update a player's score
-    function updateScore(playerName, newScore) {
-      if (!players[playerName]) return;
-
-      players[playerName] = newScore;
-      let li = document.getElementById(`player-${playerName}`);
-      if (li) li.textContent = `${playerName}: ${newScore} Points`;
-    }
-
-    // Remove a player from the scoreboard
-    function removePlayer(playerName) {
-      if (!players[playerName]) return;
-
-      delete players[playerName];
-      let li = document.getElementById(`player-${playerName}`);
-      if (li) li.remove();
-    }
-
-    // Highlight a player (e.g., current judge)
-    function highlightPlayer(playerName) {
-      document.querySelectorAll('#score_list li').forEach(li => {
-        li.classList.remove('bg-yellow-500', 'text-black');
-      });
-
-      let li = document.getElementById(`player-${playerName}`);
-      if (li) li.classList.add('bg-yellow-500', 'text-black');
-    }
-
-    function clearPlayerList() {
-      $scoreList.innerHTML = '';
-    }
-  </script>
+  <script src="./player.js"></script>
 
 </body>
 </html>
