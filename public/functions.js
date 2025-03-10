@@ -10,22 +10,19 @@ function clearElement(elem) {
   elem.innerHTML = ''
 }
 
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  let shuffledArray = [...array]; // Copy the array to prevent modifying the original
+  let currentIndex = shuffledArray.length, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+  // Fisher-Yates Shuffle
+  while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+      // Swap elements
+      [shuffledArray[currentIndex], shuffledArray[randomIndex]] = 
+      [shuffledArray[randomIndex], shuffledArray[currentIndex]];
   }
 
-  return array;
+  return shuffledArray;
 }

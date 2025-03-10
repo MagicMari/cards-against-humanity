@@ -16,6 +16,9 @@ app.get('/host', (req, res) => {
 app.get('/player', (req, res) => {
   res.sendFile(__dirname + '/public/player.html')
 })
+app.get('/join', (req, res) => {
+  res.sendFile(__dirname + '/public/join.html')
+})
 
 // var userCount = {}
 var roomInfo = {}

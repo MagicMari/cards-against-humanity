@@ -1,15 +1,86 @@
 #pregame {
-  padding: var(--main-padding)
+  padding: 1.5rem;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #black_card {
-  padding: var(--main-padding);
-  background-color: black;
-  color: white;
-  font-size:1em;
-  font-weight: 900;
+padding: 1.5rem;
+background-color: black;
+color: white;
+font-size: 1.2rem;
+font-weight: bold;
+border-radius: 8px;
+text-align: center;
+box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
+/* Ensure all white cards are uniform in size */
+.white-card {
+  width: 150px;
+  height: 220px;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 2px solid white;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.white-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Selected Card */
+.white-card.selected {
+  border: 3px solid limegreen;
+  box-shadow: 0px 0px 15px rgba(50, 205, 50, 0.7);
+  transform: scale(1.05);
+}
+
+/* Text for Selected Card */
+.white-card.selected::before {
+  content: "Card Selected";
+  color: limegreen;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  #scoreboard {
+    position: relative; /* Change to relative for mobile */
+    top: auto; /* Reset the top position */
+    right: auto; /* Reset the right position */
+    margin-top: 20px; /* Space the scoreboard below the cards */
+    width: auto; /* Make the width more flexible */
+    max-width: 100%; /* Ensure it does not overflow the screen */
+  }
+}
+
+
+/* GitHub Link */
 .github {
   position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.9rem;
+  color: #60a5fa;
+}
+
+.github:hover {
+  color: #3b82f6;
 }

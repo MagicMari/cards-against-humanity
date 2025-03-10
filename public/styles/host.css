@@ -1,80 +1,99 @@
-#pregame * {
-}
-  h1 {
-    color: white;
-    background-color: black;
-    padding: var(--main-padding);
-    border-radius: 8px;
-  }
-  .container {
-    margin: var(--main-padding);
-  }
-  .container > * + * {
-    margin-top: 1em
-  }
-    textarea {
-      width: 100%;
-      padding: 0.5em;
-      border-radius: 0.2em;
-
-      /* height: 4em; */
-
-      border: 1px solid black;
-
-      resize: none
-    }
-      textarea:focus {
-        outline: none;
-        border: 2px solid blue;
-      }
-  
-    .join-info {
-      text-align: center;
-    }
-      #players {
-        font-size: 2em;
-        font-weight: 900;
-      }
-  
-button {
-  width: 100%;
-  padding: 0.5em;
-  border-radius: 0.2em;
-  border: none;
-  background-color: blue;
+/* Main Styling */
+#pregame {
+  padding: 1.5rem;
+  background-color: #1f2937;
   color: white;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#black_card {
-  padding: var(--main-padding);
+/* Header Styling */
+h1 {
   background-color: black;
   color: white;
-  font-size:1em;
-  font-weight: 900;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
+/* Room ID Styling */
 .roomid {
   color: black;
   background-color: white;
   padding: 10px 20px;
-  text-align: center;
-  font-size: 2em;
+  font-size: 2rem;
   border: 2px solid white;
   border-radius: 8px;
   display: inline-block;
 }
 
-#round_end {
-  padding: var(--main-padding);
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  right: 0;
+/* Player Counter */
+#players {
+  font-size: 2em;
+  font-weight: 900;
 }
-  .message {
-    margin-bottom: 0.5em;
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Start Button */
+#start_button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+#start_button:hover {
+  background-color: #2563eb;
+}
+
+/* Next Round Button */
+#next_round {
+  background-color: #10b981;
+  color: white;
+}
+
+#next_round:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 1024px) {
+  #scoreboard {
+    position: relative; /* Change to relative for mobile */
+    top: auto; /* Reset the top position */
+    right: auto; /* Reset the right position */
+    margin-top: 20px; /* Space the scoreboard below the cards */
+    width: auto; /* Make the width more flexible */
+    max-width: 100%; /* Ensure it does not overflow the screen */
   }
+}
+
+@media (min-width: 1024px) {
+  #scoreboard {
+    background-color: #1f2937;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Black Card Styling */
+#black_card {
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}

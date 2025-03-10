@@ -11,12 +11,12 @@ This is a visually updated version of the original code/game from ninest's cards
 3. The players should automatically connect to the game
 
 ## To do
-- [ ] Add player names
-- [ ] Add a scoring system
-- [ ] Add a scoreboard
-- [ ] Better shuffling
+- [x] Add player names
+- [x] Add a scoring system
+- [x] Add a scoreboard
+- [x] Better shuffling
 - [ ] Selecting card packs
-- [ ] Docker containerization for fast deployment
+- [x] Docker containerization for fast deployment
 
 ## Current limits
 - Only one blank/white card per black card
