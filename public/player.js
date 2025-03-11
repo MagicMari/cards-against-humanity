@@ -31,6 +31,10 @@ socket.on('start_game', () => {
   showElement($blackCard);
 });
 
+socket.on('game_ended', () => {
+  window.location.href = '/end#' + roomID + '#' + playerName;
+})
+
 socket.on('all_players', (data) => {
   clearPlayerList();
   playerList = [];

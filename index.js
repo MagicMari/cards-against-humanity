@@ -19,6 +19,9 @@ app.get('/player', (req, res) => {
 app.get('/join', (req, res) => {
   res.sendFile(__dirname + '/public/join.html')
 })
+app.get('/end', (req, res) => {
+  res.sendFile(__dirname + '/public/game_end.html')
+})
 
 // var userCount = {}
 var roomInfo = {}
@@ -77,6 +80,17 @@ io.sockets.on('connection', (socket) => {
     io.sockets.in(data.roomID).emit('start_game', {})
     io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
   })
+
+  socket.on('game_has_ended', (data) => {
+    console.log('Game ended for room:', data.roomID);
+    io.sockets.in(data.roomID).emit('game_ended', {});
+  })
+  
+  socket.on('need_end_game_data', (data) => {
+    console.log('Game ended for room:', data.roomID);
+    io.sockets.in(data.roomID).emit('game_stats', {players: players[data.roomID]});
+  })
+
 
   socket.on('blackCard', (data) => {
     io.sockets.in(data.roomID).emit('blackCard', {blackCard: data.blackCard})

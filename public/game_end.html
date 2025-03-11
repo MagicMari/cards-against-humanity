@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#000000" />
+
+  <title>Game Ended - Cards Against Humanity</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <link rel="stylesheet" href="/styles/init.css">
+  <link rel="stylesheet" href="/styles/player.css">
+  <link rel="stylesheet" href="/styles/cards.css">
+</head>
+<body class="bg-gray-900 text-white flex flex-col min-h-screen items-center">
+
+  <!-- Header -->
+  <header class="w-full p-4 text-center bg-gray-800 shadow-lg">
+    <h1 id="header_home" class="text-3xl font-bold tracking-wide">Cards Against Humanity</h1>
+  </header>
+
+  <!-- Main Game End Container -->
+  <main class="flex-grow flex flex-col items-center justify-center p-6 w-full">
+
+    <!-- Game Over Message -->
+    <div id="game_end_message" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full max-w-lg mb-6">
+      <h2 class="text-2xl font-bold mb-2">Game Over!</h2>
+      <p class="mb-4 text-gray-300">Thanks for playing!</p>
+    </div>
+
+    <!-- Player Name Section -->
+    <div id="player_name_section" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full max-w-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Player Name:</h3>
+      <p class="text-2xl font-bold text-gray-300" id="player_name">John Doe</p>
+    </div>
+
+    <!-- Scoreboard Section -->
+    <div id="scoreboard" class="bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full max-w-lg">
+      <h2 class="text-xl font-bold mb-4">Scoreboard</h2>
+      <ul id="score_list" class="text-white">
+        <!-- Example player entries with dynamic IDs -->
+        <li class="score-entry" id="player-1">
+          <span class="player-name">John Doe</span>: 
+          <span class="player-score" id="score-1">12</span> points
+        </li>
+        <li class="score-entry" id="player-2">
+          <span class="player-name">Jane Smith</span>: 
+          <span class="player-score" id="score-2">9</span> points
+        </li>
+        <li class="score-entry" id="player-3">
+          <span class="player-name">Mark Johnson</span>: 
+          <span class="player-score" id="score-3">7</span> points
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./functions.js"></script>
+
+  <script>
+    var socket = io();
+    let roomID = location.hash.split('#')[1];
+    let playerName = location.hash.split('#')[2];
+    const scoreboard = document.getElementById("score_list");
+    let $playerNameEL = document.querySelector('#player_name');
+
+    socket.emit('join:room', { roomID: roomID, role: 'player' });
+
+    socket.emit('need_end_game_data', { roomID: roomID});
+
+    socket.on('game_stats', (data) => {
+        console.log("Game Stats recieved :", data.players);
+        $playerNameEL.innerText = playerName;
+        scoreboard.innerHTML = '';
+        playerList = [];
+        players = {};
+        data.players.forEach(player => {
+            addPlayer(player.name, player.name, player.score);
+            playerList.push(player);
+        })
+        highlightPlayer(playerName);
+    })
+
+    function addPlayer(playerId, playerName, playerPoints) {
+      const newPlayer = document.createElement("li");
+      newPlayer.classList.add("score-entry");
+      newPlayer.id = `player-${playerId}`;
+      newPlayer.innerHTML = `
+        <span class="player-name">${playerName}</span>: 
+        <span class="player-score" id="score-${playerId}">${playerPoints}</span> points
+      `;
+      scoreboard.appendChild(newPlayer);
+    }
+
+    function removePlayer(playerId) {
+      const playerElement = document.getElementById(`player-${playerId}`);
+      if (playerElement) {
+        playerElement.remove();
+      }
+    }
+
+    function highlightPlayer(playerId) {
+      const playerElement = document.getElementById(`player-${playerId}`);
+      if (playerElement) {
+        playerElement.classList.add("bg-green-500", "p-2", "rounded");
+      }
+    }
+
+    function unhighlightPlayer(playerId) {
+      const playerElement = document.getElementById(`player-${playerId}`);
+      if (playerElement) {
+        playerElement.classList.remove("bg-green-500", "p-2", "rounded");
+      }
+    }
+
+    function setPlayerPoints(playerId, points) {
+      const scoreElement = document.getElementById(`score-${playerId}`);
+      if (scoreElement) {
+        scoreElement.textContent = points;
+      }
+    }
+  </script>
+
+</body>
+</html>

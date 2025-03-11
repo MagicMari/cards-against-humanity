@@ -12,6 +12,7 @@ let $whiteCards = document.querySelector('#white_cards_host');
 let $roundEnd = document.querySelector('#round_end');
 let $nextRoundButton = document.querySelector('#next_round');
 let $qrcode = document.querySelector('#qrcode');
+let $end_game = document.querySelector('#end_game');
 
 let players = {};
 var playerList = [];
@@ -48,6 +49,10 @@ window.onload = function() {
 // joining room
 socket.emit('join:room', {roomID: roomID, role: 'host'});
 
+socket.on('game_ended', () => {
+  window.location.href = '/end#' + roomID + '#host';
+})
+
 socket.on('no_connected', (data) => {
   // incrementing dispaly
   $playerCount.innerText = parseInt($playerCount.innerText) + 1;
@@ -70,6 +75,11 @@ socket.on('all_players', (data) => {
 
 $startGameButton.onclick = () => {
   round();
+}
+
+$end_game.onclick = () => {
+  console.log("Game has ended");
+  socket.emit('game_has_ended', {roomID: roomID});
 }
 
 // called every round
