@@ -11,6 +11,8 @@ let $whiteCards = document.querySelector('#white_cards_host');
 
 let $roundEnd = document.querySelector('#round_end');
 let $nextRoundButton = document.querySelector('#next_round');
+let $qrcode = document.querySelector('#qrcode');
+
 let players = {};
 var playerList = [];
 
@@ -28,6 +30,20 @@ let roomID = Math.random().toString(36).substring(2);
 let selectedCard = null;
 
 $linkTextarea.innerText = roomID;
+
+window.onload = function() {
+    let roomCode = roomID;
+    var baseURL = window.location.origin;
+    baseURL = baseURL + `/join#${roomCode}`;
+    const qrcode = new QRCode(document.getElementById('qrcode'), {
+        text: baseURL,
+        width: 192,
+        height: 192,
+        colorDark : '#000',
+        colorLight : '#fff',
+        correctLevel : QRCode.CorrectLevel.H
+    });
+}
 
 // joining room
 socket.emit('join:room', {roomID: roomID, role: 'host'});
@@ -68,6 +84,7 @@ function round() {
 
   hideElement($pregame);
   hideElement($roundEnd);
+  hideElement($qrcode);
   // clear white cards from previous round
   showElement($blackCard);
   clearElement($whiteCards);
