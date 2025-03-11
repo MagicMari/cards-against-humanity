@@ -74,13 +74,19 @@ socket.on('all_players', (data) => {
 })
 
 $startGameButton.onclick = () => {
+  $end_game.onclick = () => {
+    console.log("Game has ended");
+    socket.emit('game_has_ended', {roomID: roomID});
+  }
+  $nextRoundButton.onclick = function() {
+    console.log('new round');
+    //console.log(selectedCard);
+    socket.emit('add_point_to', {roomID: roomID, player: selectedCard.querySelector("#player").innerText, points: 1})
+    round();
+  }  
   round();
 }
 
-$end_game.onclick = () => {
-  console.log("Game has ended");
-  socket.emit('game_has_ended', {roomID: roomID});
-}
 
 // called every round
 function round() {
@@ -154,12 +160,6 @@ function selectWhiteCard(el, card) {
   showElement($roundEnd);
 }
 
-$nextRoundButton.onclick = function() {
-  console.log('new round');
-  //console.log(selectedCard);
-  socket.emit('add_point_to', {roomID: roomID, player: selectedCard.querySelector("#player").innerText, points: 1})
-  round();
-}
 
 // Add a player to the scoreboard
 function addPlayer(playerName, points = 0) {
@@ -212,3 +212,108 @@ function highlightPlayer(playerName) {
 function clearPlayerList() {
   $scoreList.innerHTML = '';
 }
+
+function addCardPack(packId, packName) {
+  const packElement = document.getElementById(`pack-${packId}`);
+  if (!packElement) return;
+
+  // Remove from unselected packs
+  packElement.remove();
+
+  // Create a new list item for the selected packs
+  const selectedPackList = document.getElementById("selected_packs");
+  const newPack = document.createElement("li");
+  newPack.classList.add("card-pack-pill", "bg-green-500", "text-white", "p-4", "rounded");
+  newPack.id = `selected-pack-${packId}`;
+  newPack.onclick = function () {
+    removeCardPack(packId, packName);
+  };
+  newPack.innerHTML = `${packName}`;
+  
+  selectedPackList.appendChild(newPack);
+}
+
+function removeCardPack(packId, packName) {
+  const selectedPackElement = document.getElementById(`selected-pack-${packId}`);
+  if (!selectedPackElement) return;
+
+  // Remove from selected packs
+  selectedPackElement.remove();
+
+  // Add back to unselected packs
+  const unselectedPackList = document.getElementById("unselected_packs");
+  const newPack = document.createElement("li");
+  newPack.classList.add("card-pack-pill");
+  newPack.id = `pack-${packId}`;
+  newPack.innerText = packName;
+  newPack.onclick = function() { addCardPack(packId, packName); };
+
+  unselectedPackList.appendChild(newPack);
+}
+
+function searchCardPack(query) {
+  const allPacks = document.querySelectorAll("#unselected_packs .card-pack-pill");
+  query = query.toLowerCase();
+
+  allPacks.forEach(pack => {
+    const text = pack.innerText.toLowerCase();
+    if (text.includes(query)) {
+      pack.style.display = "block";
+    } else {
+      pack.style.display = "none";
+    }
+  });
+}
+
+document.getElementById("card_pack_search").addEventListener("input", function() {
+  searchCardPack(this.value);
+});
+
+let packCounter = 1; // Start from the next available ID
+
+function addUnselectedPack(packName) {
+  const unselectedPackList = document.getElementById("unselected_packs");
+
+  // Create a unique ID
+  const packId = `pack-${packCounter++}`;
+
+  // Create a new list item for the pack
+  const newPack = document.createElement("li");
+  newPack.classList.add("card-pack-pill");
+  newPack.id = packId;
+  newPack.innerText = packName;
+  newPack.onclick = function () {
+      addCardPack(packId, packName);
+  };
+
+  // Append the new pack to the list
+  unselectedPackList.appendChild(newPack);
+}
+
+fetch('cah-all-full.json')
+    .then(response => response.json())
+    .then(jsonData => {
+        const navigator = new JSONNavigator(jsonData);
+
+        function getAllOfficialPacks() {
+            let i = 0;
+            let official_packs = [];
+            
+            while (true) {
+                let packName = navigator.get(i + '.name');
+                if (packName === undefined) break;
+
+                if (navigator.get(i + '.official')) {
+                    official_packs.push(packName);
+                }
+                i++;
+            }
+            return official_packs;
+        }
+        var official_packs = getAllOfficialPacks();
+          official_packs.forEach(pack => {
+          addUnselectedPack(pack);
+        });
+        //console.log("Official Packs:", getAllOfficialPacks());
+    })
+    .catch(error => console.error("Error loading JSON:", error));

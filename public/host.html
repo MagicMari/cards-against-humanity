@@ -47,29 +47,32 @@
       <!-- The QR code will be generated here -->
     </div>
 
-    <!-- Black Card Display -->
-    <div id="black_card" class="mt-6 text-xl font-bold bg-black text-white p-6 rounded-lg shadow-lg hidden w-full">
-      <p>Waiting for the black card...</p>
-    </div>
+    <!-- Card Pack Selection -->
+    <div id="card_pack_section" class="mt-6 bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-3xl">
+      <h2 class="text-xl font-bold mb-4">Select Card Packs</h2>
 
-    <!-- White Cards Display -->
-    <div id="white_cards_host" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 w-full max-w-full sm:max-w-2xl hidden"></div>
+      <!-- Search Bar -->
+      <input type="text" id="card_pack_search" placeholder="Search card packs..." 
+        class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
-    <!-- Scoreboard -->
-    <aside id="scoreboard" class="fixed right-4 top-1/4 w-64 bg-gray-800 p-4 rounded-lg shadow-lg hidden">
-      <h2 class="text-xl font-bold text-center mb-4">Scoreboard</h2>
-      <button id="end_game" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition mt-4">
-        End Game
-      </button>
-      <ul id="score_list" class="text-white"></ul>
-    </aside>
+      <div class="flex flex-col sm:flex-row mt-4 space-y-4 sm:space-y-0 sm:space-x-4">
 
-    <!-- End of Round Section -->
-    <div id="round_end" class="mt-6 hidden">
-      <p class="message text-lg">A round has ended. Start another?</p>
-      <button id="next_round" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition mt-2">
-        Next Round
-      </button>
+        <!-- Unselected Packs (Scrollable) -->
+        <div class="flex-1 bg-gray-900 p-4 rounded-lg shadow-lg overflow-y-auto max-h-40">
+          <h3 class="text-lg font-bold mb-2">Available Packs</h3>
+          <ul id="unselected_packs" class="space-y-2">
+          </ul>
+        </div>
+
+        <!-- Selected Packs (Scrollable) -->
+        <div class="flex-1 bg-gray-900 p-4 rounded-lg shadow-lg overflow-y-auto max-h-40">
+          <h3 class="text-lg font-bold mb-2">Selected Packs</h3>
+          <ul id="selected_packs" class="space-y-2">
+            <!-- Selected packs will appear here -->
+          </ul>
+        </div>
+
+      </div>
     </div>
 
   </main>
@@ -79,7 +82,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="./functions.js"></script>
   <script src="./red_pack_2.js"></script>
+  <script src="./json_navigator.js"></script>
   <script src="./host.js"></script>
-
 </body>
 </html>
