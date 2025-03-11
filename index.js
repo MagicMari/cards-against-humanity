@@ -84,6 +84,7 @@ io.sockets.on('connection', (socket) => {
   socket.on('game_has_ended', (data) => {
     console.log('Game ended for room:', data.roomID);
     io.sockets.in(data.roomID).emit('game_ended', {});
+    console.log("All rooms :", roomInfo);
   })
   
   socket.on('need_end_game_data', (data) => {
