@@ -39,25 +39,25 @@ class all_cards {
 
     getAllCommunityPacks() {
         let i = 0;
-        let official_packs = [];
+        let community_packs = [];
         
         while (true) {
             let packName = this.navigator.get(i + '.name');
             if (packName === undefined) break;
     
-            if (this.navigator.get(i + '.official')) {
-                official_packs.push(packName);
+            if (!this.navigator.get(i + '.official')) {
+                community_packs.push(packName);
             }
             i++;
         }
-        return official_packs;
+        return community_packs;
     }
 
     getWhiteCardsFor(packs) {
         var whiteCards = [];
         packs.forEach(pack => {
-            console.log('Pack:', pack);
-            console.log('Pack ID:', this.packIDs[pack]);
+            //console.log('Pack:', pack);
+            //console.log('Pack ID:', this.packIDs[pack]);
             var currentCards = this.navigator.get(this.packIDs[pack] + '.white');
             currentCards.forEach(card => {
                 whiteCards.push(card['text'])

@@ -39,7 +39,7 @@ io.sockets.on('connection', (socket) => {
 
   // joining room
   socket.on('join:room', (data) => {
-    console.log('Joining room, ', data.roomID)
+    //console.log('Joining room, ', data.roomID)
     socket.join(data.roomID)
 
     // console.log(data.role);
@@ -54,15 +54,15 @@ io.sockets.on('connection', (socket) => {
             io.sockets.in(data.roomID).emit('no_connected', {no: roomInfo[data.roomID].userCount})
           } catch {
             // the roomInfo for data.roomID is undefined, meaning a host has never visited it
-            console.log(roomInfo[data.roomID])
+            //console.log(roomInfo[data.roomID])
             io.sockets.in(data.roomID).emit('error', {message: "Room does not exist."})
           }
         } else {
-          console.log('GAME ALREADY STARTED')
-          io.sockets.in(data.roomID).emit('error', {message: "This game has already started, late motherfucker."})
+          //console.log('GAME ALREADY STARTED')
+          io.sockets.in(data.roomID).emit('error', {message: "This game has already started."})
         }
       } catch {
-        console.log('Room does not exist')
+        //console.log('Room does not exist')
         io.sockets.in(data.roomID).emit('error', {message: "Room does not exist."})
       }
     } else {
@@ -82,15 +82,26 @@ io.sockets.on('connection', (socket) => {
 
 
   socket.on('start_game', (data) => {
-    console.log('Start game')
+    //console.log('Start game')
     roomInfo[data.roomID].gameStarted = true
     io.sockets.in(data.roomID).emit('start_game', {})
     io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
   })
 
   socket.on('get_black_cards', (data) => {
-    io.sockets.in(data.roomID).emit('recieve_black_cards', {blackCards: cards.getBlackCardsFor(data.packs)})
-    packsForRooms[data.roomID] = data.packs
+    var combined_packs = []
+    if(data.officialPacks.length != 0) {
+      combined_packs.push(...data.officialPacks)
+    } else if(data.communityPacks.length != 0) {
+      combined_packs.push(...data.communityPacks)
+    } else {
+      combined_packs = ['CAH Base Set']
+    }
+    //console.log(data.officialPacks)
+    //console.log(data.communityPacks)
+    //console.log(combined_packs)
+    io.sockets.in(data.roomID).emit('recieve_black_cards', {blackCards: cards.getBlackCardsFor(combined_packs)})
+    packsForRooms[data.roomID] = combined_packs
   })
 
   socket.on('get_white_cards', (data) => {
@@ -98,13 +109,13 @@ io.sockets.on('connection', (socket) => {
   })
 
   socket.on('game_has_ended', (data) => {
-    console.log('Game ended for room:', data.roomID);
+    //console.log('Game ended for room:', data.roomID);
     io.sockets.in(data.roomID).emit('game_ended', {});
-    console.log("All rooms :", roomInfo);
+    //console.log("All rooms :", roomInfo);
   })
   
   socket.on('need_end_game_data', (data) => {
-    console.log('Game ended for room:', data.roomID);
+    //console.log('Game ended for room:', data.roomID);
     io.sockets.in(data.roomID).emit('game_stats', {players: players[data.roomID]});
     delete players[data.roomID]
     delete packsForRooms[data.roomID]
@@ -117,20 +128,20 @@ io.sockets.on('connection', (socket) => {
 
   // on white card chosen
   socket.on('card_chosen', (data) => {
-    console.log(data.card, data.roomID)
+    //console.log(data.card, data.roomID)
     io.sockets.in(data.roomID).emit('card_chosen', {card: data.card, player: data.player})
   })
 
   socket.on('add_point_to', (data) => {
-    console.log(data.player, data.points)
+    //console.log(data.player, data.points)
     addPlayerScore(data.roomID, data.player, data.points)
     //io.sockets.in(data.roomID).emit('card_chosen', {card: data.card, player: data.player})
   })
 
   socket.on('playerJoin', (data) => {
-    console.log("Player Name:", data.playerName)
-    console.log("User ID:", socket.conn.id)
-    console.log("RoomID:", data.roomID)
+    //console.log("Player Name:", data.playerName)
+    //console.log("User ID:", socket.conn.id)
+    //console.log("RoomID:", data.roomID)
 
     // Check if the room exists in `players`
     if (!(data.roomID in players)) {
@@ -144,16 +155,16 @@ io.sockets.on('connection', (socket) => {
         score: 0 
     })
     //io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
-    console.log("Updated Players:", players)
+    //console.log("Updated Players:", players)
   })
 
   socket.on('request_official_packs', (data) => {
-    console.log('Sending Official Packs to:', data.hostID)
+    //console.log('Sending Official Packs to:', data.hostID)
     io.to(data.hostID).emit('official_packs', {packs: official_packs})
   })
 
   socket.on('request_community_packs', (data) => {
-    console.log('Sending Community Packs to:', data.hostID)
+    //console.log('Sending Community Packs to:', data.hostID)
     io.to(data.hostID).emit('community_packs', {packs: community_packs})
   })
 
@@ -169,7 +180,7 @@ io.sockets.on('connection', (socket) => {
     
     if (player) {
         player.score = player.score + newScore; // Update score
-        console.log(`Updated ${playerName}'s score to ${newScore}`);
+        //console.log(`Updated ${playerName}'s score to ${newScore}`);
     } else {
         console.error("Player not found:", playerName);
     }
@@ -177,14 +188,14 @@ io.sockets.on('connection', (socket) => {
   socket.on('disconnect', (data) => {
 
     let id = socket.conn.id
-    console.log(id)
+    //console.log(id)
     // implement logic to change number of connecteds
 
     // check if the socket was a host
-    console.log(roomInfo)
+    //console.log(roomInfo)
     Object.keys(roomInfo).forEach((room) => {
       if (id == roomInfo[room].hostID) {
-        console.log('Deleting room ', room)
+        //console.log('Deleting room ', room)
         delete roomInfo[room]
 
         io.sockets.in(room).emit('error', {message: "The fucking host disconnected"})
@@ -201,7 +212,7 @@ http.listen(3000, () => {
   
   // Log the address of the server (127.0.0.1 or ::)
   const host = address.address === '::' ? 'localhost' : address.address
-  console.log(`Server listening on ${host}:${address.port}`)
+  //console.log(`Server listening on ${host}:${address.port}`)
   
   // Log all available network interfaces
   const networkInterfaces = os.networkInterfaces()
