@@ -103,7 +103,7 @@ socket.on('community_packs', (data) => {
 socket.emit('join:room', {roomID: roomID, role: 'host'});
 
 socket.on('game_ended', () => {
-  window.location.href = '/end#' + roomID + '#host';
+  window.location.href = '/end#' + roomID + '#Host';
 })
 
 socket.on('no_connected', (data) => {

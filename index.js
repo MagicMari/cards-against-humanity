@@ -115,12 +115,15 @@ io.sockets.on('connection', (socket) => {
   })
   
   socket.on('need_end_game_data', (data) => {
-    //console.log('Game ended for room:', data.roomID);
-    io.sockets.in(data.roomID).emit('game_stats', {players: players[data.roomID]});
+    //console.log('Game ended for room:', data.roomID)
+    //console.log('Game Stats are:', players[data.roomID])
+    io.sockets.in(data.roomID).emit('game_stats', {players: players[data.roomID]})
+  })
+
+  socket.on('delete_game_stats', (data) => {
     delete players[data.roomID]
     delete packsForRooms[data.roomID]
   })
-
 
   socket.on('blackCard', (data) => {
     io.sockets.in(data.roomID).emit('blackCard', {blackCard: data.blackCard})

@@ -72,8 +72,9 @@
     let $playerNameEL = document.querySelector('#player_name');
 
     socket.emit('join:room', { roomID: roomID, role: 'player' });
-
-    socket.emit('need_end_game_data', { roomID: roomID});
+    window.onload = function() {
+      socket.emit('need_end_game_data', { roomID: roomID});
+    }
 
     socket.on('game_stats', (data) => {
         console.log("Game Stats recieved :", data.players);
@@ -88,9 +89,13 @@
         highlightPlayer(playerName);
     })
 
+    window.addEventListener("beforeunload", (event) => {
+      socket.emit('delete_game_stats', {roomID: roomID});
+    });
+
     function addPlayer(playerId, playerName, playerPoints) {
       const newPlayer = document.createElement("li");
-      newPlayer.classList.add("score-entry");
+      newPlayer.classList.add("score-entry", "mt-2");
       newPlayer.id = `player-${playerId}`;
       newPlayer.innerHTML = `
         <span class="player-name">${playerName}</span>: 
