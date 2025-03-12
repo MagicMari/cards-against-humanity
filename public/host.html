@@ -47,7 +47,6 @@
       <!-- The QR code will be generated here -->
     </div>
 
-    <!-- Card Pack Selection -->
     <div id="card_pack_section" class="mt-6 bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-3xl">
       <h2 class="text-xl font-bold mb-4">Select Card Packs</h2>
 
@@ -75,14 +74,38 @@
       </div>
     </div>
 
+    <!-- Black Card Display -->
+    <div id="black_card" class="mt-6 text-xl font-bold bg-black text-white p-6 rounded-lg shadow-lg hidden w-full">
+      <p>Waiting for the black card...</p>
+    </div>
+
+    <!-- White Cards Display -->
+    <div id="white_cards_host" class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 w-full max-w-full sm:max-w-2xl hidden"></div>
+
+    <!-- Scoreboard -->
+    <aside id="scoreboard" class="fixed right-4 top-1/4 w-64 bg-gray-800 p-4 rounded-lg shadow-lg hidden">
+      <h2 class="text-xl font-bold text-center mb-4">Scoreboard</h2>
+      <button id="end_game" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition mt-4">
+        End Game
+      </button>
+      <ul id="score_list" class="text-white"></ul>
+    </aside>
+
+    <!-- End of Round Section -->
+    <div id="round_end" class="mt-6 hidden">
+      <p class="message text-lg">A round has ended. Start another?</p>
+      <button id="next_round" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-md transition mt-2">
+        Next Round
+      </button>
+    </div>
+
   </main>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./functions.js"></script>
-  <script src="./red_pack_2.js"></script>
-  <script src="./json_navigator.js"></script>
   <script src="./host.js"></script>
+
 </body>
 </html>

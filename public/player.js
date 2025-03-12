@@ -6,6 +6,7 @@ let selectedCard = null;
 let currentCard = null;
 
 // Shuffle and draw initial hand
+let WHITE_CARDS = [];
 let whiteDeck = shuffle([...WHITE_CARDS]);
 //let handCards = whiteCards.splice(0, 5);
 let handCards = [];
@@ -27,7 +28,7 @@ socket.on('start_game', () => {
   $pregame.style.display = 'none';
   $scoreboard.classList.remove('hidden'); // Show scoreboard
   //players = {};
-  round();
+  socket.emit('get_white_cards', {roomID: roomID});
   showElement($blackCard);
 });
 
@@ -50,11 +51,17 @@ socket.on('blackCard', (data) => {
   $blackCard.innerHTML = data.blackCard;
 });
 
+socket.on('recieve_white_cards', (data) => {
+  WHITE_CARDS = data.whiteCards;
+  console.log(WHITE_CARDS)
+  round();
+})
+
 function round() {
   selectedCard = null;
   $handCards.innerHTML = '';
 
-  let whiteCards = shuffle([...WHITE_CARDS]);
+  //var whiteCards = shuffle([...WHITE_CARDS]);
   for(let i = handCards.length;  i < 6; i++){
     handCards.push(drawCard());
   }

@@ -3,7 +3,14 @@ const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
 const os = require('os')
+const all_cards = require('./all_cards.js');
+const cards = new all_cards()
 let players = {}
+
+let packsForRooms = {}
+
+const official_packs = cards.getAllOfficialPacks()
+const community_packs = cards.getAllCommunityPacks()
 
 app.use(express.static(__dirname + '/public'))
 
@@ -81,6 +88,15 @@ io.sockets.on('connection', (socket) => {
     io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
   })
 
+  socket.on('get_black_cards', (data) => {
+    io.sockets.in(data.roomID).emit('recieve_black_cards', {blackCards: cards.getBlackCardsFor(data.packs)})
+    packsForRooms[data.roomID] = data.packs
+  })
+
+  socket.on('get_white_cards', (data) => {
+    io.sockets.in(data.roomID).emit('recieve_white_cards', {whiteCards: cards.getWhiteCardsFor(packsForRooms[data.roomID])})
+  })
+
   socket.on('game_has_ended', (data) => {
     console.log('Game ended for room:', data.roomID);
     io.sockets.in(data.roomID).emit('game_ended', {});
@@ -90,6 +106,8 @@ io.sockets.on('connection', (socket) => {
   socket.on('need_end_game_data', (data) => {
     console.log('Game ended for room:', data.roomID);
     io.sockets.in(data.roomID).emit('game_stats', {players: players[data.roomID]});
+    delete players[data.roomID]
+    delete packsForRooms[data.roomID]
   })
 
 
@@ -127,6 +145,16 @@ io.sockets.on('connection', (socket) => {
     })
     //io.sockets.in(data.roomID).emit('all_players', {players: players[data.roomID]})
     console.log("Updated Players:", players)
+  })
+
+  socket.on('request_official_packs', (data) => {
+    console.log('Sending Official Packs to:', data.hostID)
+    io.to(data.hostID).emit('official_packs', {packs: official_packs})
+  })
+
+  socket.on('request_community_packs', (data) => {
+    console.log('Sending Community Packs to:', data.hostID)
+    io.to(data.hostID).emit('community_packs', {packs: community_packs})
   })
 
   function addPlayerScore(roomID, playerName, newScore) {
