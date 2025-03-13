@@ -96,3 +96,6 @@ dist
 
 # nuxt pwa
 sw.*
+
+
+test.js

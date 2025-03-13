@@ -89,14 +89,15 @@ socket.on('official_packs', (data) => {
     //console.log(pack);
     addUnselectedPack(pack);
   })
-  addCardPack(1, 'CAH Base Set');
+  //addCardPack(1, 'CAH Base Set');
 })
 
 socket.on('community_packs', (data) => {
   //console.log('Getting community Packs');
   data.packs.forEach(pack => {
-    addUnselectedCommunityPack(pack)
+    addUnselectedCommunityPack(pack);
   })
+  addCardCommunityPack(206, 'DDR Pack');
 })
 
 // joining room

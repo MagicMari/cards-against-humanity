@@ -135298,5 +135298,2156 @@
       }
     ],
     "official": false
+  },
+  {
+    "name": "DDR Pack",
+    "white": [
+      {
+        "text": "Trabbi",
+        "pack": 205
+      },
+      {
+        "text": "Stasi",
+        "pack": 205
+      },
+      {
+        "text": "Honecker",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint",
+        "pack": 205
+      },
+      {
+        "text": "Intershop",
+        "pack": 205
+      },
+      {
+        "text": "Defection",
+        "pack": 205
+      },
+      {
+        "text": "Surveillance",
+        "pack": 205
+      },
+      {
+        "text": "Volksarmee",
+        "pack": 205
+      },
+      {
+        "text": "Leninism",
+        "pack": 205
+      },
+      {
+        "text": "Propaganda",
+        "pack": 205
+      },
+      {
+        "text": "Informant",
+        "pack": 205
+      },
+      {
+        "text": "Betrayal",
+        "pack": 205
+      },
+      {
+        "text": "Censorship",
+        "pack": 205
+      },
+      {
+        "text": "Interrogation",
+        "pack": 205
+      },
+      {
+        "text": "Treason",
+        "pack": 205
+      },
+      {
+        "text": "Rations",
+        "pack": 205
+      },
+      {
+        "text": "Comrade",
+        "pack": 205
+      },
+      {
+        "text": "Dissident",
+        "pack": 205
+      },
+      {
+        "text": "Wall",
+        "pack": 205
+      },
+      {
+        "text": "Bananas",
+        "pack": 205
+      },
+      {
+        "text": "Queue",
+        "pack": 205
+      },
+      {
+        "text": "RedArmy",
+        "pack": 205
+      },
+      {
+        "text": "Collectivization",
+        "pack": 205
+      },
+      {
+        "text": "Wiretap",
+        "pack": 205
+      },
+      {
+        "text": "Blacklist",
+        "pack": 205
+      },
+      {
+        "text": "Marxism",
+        "pack": 205
+      },
+      {
+        "text": "Socialism",
+        "pack": 205
+      },
+      {
+        "text": "Ministry",
+        "pack": 205
+      },
+      {
+        "text": "Denunciation",
+        "pack": 205
+      },
+      {
+        "text": "Smuggling",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Charlie",
+        "pack": 205
+      },
+      {
+        "text": "Volkspolizei",
+        "pack": 205
+      },
+      {
+        "text": "Agitprop",
+        "pack": 205
+      },
+      {
+        "text": "Border",
+        "pack": 205
+      },
+      {
+        "text": "Espionage",
+        "pack": 205
+      },
+      {
+        "text": "Soviets",
+        "pack": 205
+      },
+      {
+        "text": "Dictatorship",
+        "pack": 205
+      },
+      {
+        "text": "Uprising",
+        "pack": 205
+      },
+      {
+        "text": "Paranoia",
+        "pack": 205
+      },
+      {
+        "text": "Interrogator",
+        "pack": 205
+      },
+      {
+        "text": "Bureaucracy",
+        "pack": 205
+      },
+      {
+        "text": "Prison",
+        "pack": 205
+      },
+      {
+        "text": "Coca-Cola",
+        "pack": 205
+      },
+      {
+        "text": "Microphone",
+        "pack": 205
+      },
+      {
+        "text": "Secret Police",
+        "pack": 205
+      },
+      {
+        "text": "Brandenburg",
+        "pack": 205
+      },
+      {
+        "text": "Escape",
+        "pack": 205
+      },
+      {
+        "text": "Ideology",
+        "pack": 205
+      },
+      {
+        "text": "Survival",
+        "pack": 205
+      },
+      {
+        "text": "RedTape",
+        "pack": 205
+      },
+      {
+        "text": "Wall Jumping",
+        "pack": 205
+      },
+      {
+        "text": "Traitor",
+        "pack": 205
+      },
+      {
+        "text": "Wiretapping",
+        "pack": 205
+      },
+      {
+        "text": "Files",
+        "pack": 205
+      },
+      {
+        "text": "Passport",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Alpha",
+        "pack": 205
+      },
+      {
+        "text": "Dictator",
+        "pack": 205
+      },
+      {
+        "text": "Siberia",
+        "pack": 205
+      },
+      {
+        "text": "East Berlin",
+        "pack": 205
+      },
+      {
+        "text": "West Berlin",
+        "pack": 205
+      },
+      {
+        "text": "Patriotism",
+        "pack": 205
+      },
+      {
+        "text": "Exile",
+        "pack": 205
+      },
+      {
+        "text": "Glasnost",
+        "pack": 205
+      },
+      {
+        "text": "Perestroika",
+        "pack": 205
+      },
+      {
+        "text": "Treason",
+        "pack": 205
+      },
+      {
+        "text": "Socialist Realism",
+        "pack": 205
+      },
+      {
+        "text": "Moscow",
+        "pack": 205
+      },
+      {
+        "text": "Siberia",
+        "pack": 205
+      },
+      {
+        "text": "Five-Year-Plan",
+        "pack": 205
+      },
+      {
+        "text": "Secret Files",
+        "pack": 205
+      },
+      {
+        "text": "Cold War",
+        "pack": 205
+      },
+      {
+        "text": "Revolution",
+        "pack": 205
+      },
+      {
+        "text": "Obedience",
+        "pack": 205
+      },
+      {
+        "text": "Interrogation Room",
+        "pack": 205
+      },
+      {
+        "text": "Suspicion",
+        "pack": 205
+      },
+      {
+        "text": "Thought Crime",
+        "pack": 205
+      },
+      {
+        "text": "Party Loyalty",
+        "pack": 205
+      },
+      {
+        "text": "Oppression",
+        "pack": 205
+      },
+      {
+        "text": "RationCard",
+        "pack": 205
+      },
+      {
+        "text": "Gulag",
+        "pack": 205
+      },
+      {
+        "text": "State Radio",
+        "pack": 205
+      },
+      {
+        "text": "Wiretaps",
+        "pack": 205
+      },
+      {
+        "text": "Soviet Vodka",
+        "pack": 205
+      },
+      {
+        "text": "Iron Curtain",
+        "pack": 205
+      },
+      {
+        "text": "State Security",
+        "pack": 205
+      },
+      {
+        "text": "Politburo",
+        "pack": 205
+      },
+      {
+        "text": "West Spy",
+        "pack": 205
+      },
+      {
+        "text": "Berlin Wall",
+        "pack": 205
+      },
+      {
+        "text": "Trabant Factory",
+        "pack": 205
+      },
+      {
+        "text": "Party Member",
+        "pack": 205
+      },
+      {
+        "text": "Central Committee",
+        "pack": 205
+      },
+      {
+        "text": "People&#39;s Police",
+        "pack": 205
+      },
+      {
+        "text": "Pravda",
+        "pack": 205
+      },
+      {
+        "text": "Workers Paradise",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Bravo",
+        "pack": 205
+      },
+      {
+        "text": "Interrogation Lamp",
+        "pack": 205
+      },
+      {
+        "text": "Radio Free Europe",
+        "pack": 205
+      },
+      {
+        "text": "Blockwart",
+        "pack": 205
+      },
+      {
+        "text": "The Berlin Wall",
+        "pack": 205
+      },
+      {
+        "text": "Stasi informant",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Charlie",
+        "pack": 205
+      },
+      {
+        "text": "Defecting to the West",
+        "pack": 205
+      },
+      {
+        "text": "Listening through the walls",
+        "pack": 205
+      },
+      {
+        "text": "Secret police files",
+        "pack": 205
+      },
+      {
+        "text": "Waiting in line",
+        "pack": 205
+      },
+      {
+        "text": "Smuggling bananas",
+        "pack": 205
+      },
+      {
+        "text": "Hiding from the Stasi",
+        "pack": 205
+      },
+      {
+        "text": "Soviet occupation zone",
+        "pack": 205
+      },
+      {
+        "text": "Party loyalty test",
+        "pack": 205
+      },
+      {
+        "text": "Watching West German TV",
+        "pack": 205
+      },
+      {
+        "text": "A Trabant that starts",
+        "pack": 205
+      },
+      {
+        "text": "Reporting your neighbor",
+        "pack": 205
+      },
+      {
+        "text": "Wiretapped phone calls",
+        "pack": 205
+      },
+      {
+        "text": "Comrade Honecker&#39;s speeches",
+        "pack": 205
+      },
+      {
+        "text": "The Iron Curtain",
+        "pack": 205
+      },
+      {
+        "text": "Socialist realism paintings",
+        "pack": 205
+      },
+      {
+        "text": "Propaganda posters everywhere",
+        "pack": 205
+      },
+      {
+        "text": "A mysterious black car",
+        "pack": 205
+      },
+      {
+        "text": "Escaping through a tunnel",
+        "pack": 205
+      },
+      {
+        "text": "The people&#39;s paradise",
+        "pack": 205
+      },
+      {
+        "text": "Mandatory Marxist education",
+        "pack": 205
+      },
+      {
+        "text": "The Ministry for State Security",
+        "pack": 205
+      },
+      {
+        "text": "An informant in every room",
+        "pack": 205
+      },
+      {
+        "text": "Border guards with rifles",
+        "pack": 205
+      },
+      {
+        "text": "State-approved literature",
+        "pack": 205
+      },
+      {
+        "text": "The Volkspolizei checkpoint",
+        "pack": 205
+      },
+      {
+        "text": "Censorship of Western music",
+        "pack": 205
+      },
+      {
+        "text": "Collectivized potato farms",
+        "pack": 205
+      },
+      {
+        "text": "Vodka-fueled revolution",
+        "pack": 205
+      },
+      {
+        "text": "Cold War paranoia",
+        "pack": 205
+      },
+      {
+        "text": "A ration card for bread",
+        "pack": 205
+      },
+      {
+        "text": "The Five-Year Plan",
+        "pack": 205
+      },
+      {
+        "text": "Banned rock and roll",
+        "pack": 205
+      },
+      {
+        "text": "A hidden radio receiver",
+        "pack": 205
+      },
+      {
+        "text": "Fleeing under gunfire",
+        "pack": 205
+      },
+      {
+        "text": "Lenin&#39;s stern portrait",
+        "pack": 205
+      },
+      {
+        "text": "A forced confession",
+        "pack": 205
+      },
+      {
+        "text": "State-sponsored surveillance",
+        "pack": 205
+      },
+      {
+        "text": "A suitcase full of Ostmarks",
+        "pack": 205
+      },
+      {
+        "text": "The Red Army choir",
+        "pack": 205
+      },
+      {
+        "text": "A wall covered in graffiti",
+        "pack": 205
+      },
+      {
+        "text": "Listening to Radio Free Europe",
+        "pack": 205
+      },
+      {
+        "text": "Singing the Internationale",
+        "pack": 205
+      },
+      {
+        "text": "Living in a Plattenbau",
+        "pack": 205
+      },
+      {
+        "text": "The Stasi knocking at midnight",
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Alpha security check",
+        "pack": 205
+      },
+      {
+        "text": "A Trabant running on fumes",
+        "pack": 205
+      },
+      {
+        "text": "Spying on your best friend",
+        "pack": 205
+      },
+      {
+        "text": "A Soviet military parade",
+        "pack": 205
+      },
+      {
+        "text": "An empty grocery store",
+        "pack": 205
+      },
+      {
+        "text": "Treason against the state",
+        "pack": 205
+      },
+      {
+        "text": "Glasnost and perestroika",
+        "pack": 205
+      },
+      {
+        "text": "A failed escape attempt",
+        "pack": 205
+      },
+      {
+        "text": "Red tape everywhere",
+        "pack": 205
+      },
+      {
+        "text": "Secret tunnels under Berlin",
+        "pack": 205
+      },
+      {
+        "text": "A party-approved haircut",
+        "pack": 205
+      },
+      {
+        "text": "A portrait of Marx",
+        "pack": 205
+      },
+      {
+        "text": "The Politburo&#39;s final decision",
+        "pack": 205
+      },
+      {
+        "text": "A smuggled Western newspaper",
+        "pack": 205
+      },
+      {
+        "text": "A fake passport and a dream",
+        "pack": 205
+      },
+      {
+        "text": "State-controlled television",
+        "pack": 205
+      },
+      {
+        "text": "A book full of redactions",
+        "pack": 205
+      },
+      {
+        "text": "An informant at the bar",
+        "pack": 205
+      },
+      {
+        "text": "A Trabant with no brakes",
+        "pack": 205
+      },
+      {
+        "text": "A wall that must fall",
+        "pack": 205
+      },
+      {
+        "text": "A school trip to Moscow",
+        "pack": 205
+      },
+      {
+        "text": "Interrogation under a spotlight",
+        "pack": 205
+      },
+      {
+        "text": "A midnight arrest",
+        "pack": 205
+      },
+      {
+        "text": "A Soviet tank rolling in",
+        "pack": 205
+      },
+      {
+        "text": "A childhood of suspicion",
+        "pack": 205
+      },
+      {
+        "text": "A bureaucratic nightmare",
+        "pack": 205
+      },
+      {
+        "text": "A tunnel to West Berlin",
+        "pack": 205
+      },
+      {
+        "text": "A secret meeting in the forest",
+        "pack": 205
+      },
+      {
+        "text": "A forbidden Beatles record",
+        "pack": 205
+      },
+      {
+        "text": "A bug hidden in the lamp",
+        "pack": 205
+      },
+      {
+        "text": "A lifetime of surveillance",
+        "pack": 205
+      },
+      {
+        "text": "A sudden knock on the door",
+        "pack": 205
+      },
+      {
+        "text": "A rationed loaf of bread",
+        "pack": 205
+      },
+      {
+        "text": "A speech full of lies",
+        "pack": 205
+      },
+      {
+        "text": "A passport stamped “denied”",
+        "pack": 205
+      },
+      {
+        "text": "A comrade&#39;s suspicious glance",
+        "pack": 205
+      },
+      {
+        "text": "A failed socialist utopia",
+        "pack": 205
+      },
+      {
+        "text": "A government-issued opinion",
+        "pack": 205
+      },
+      {
+        "text": "A radio jamming station",
+        "pack": 205
+      },
+      {
+        "text": "A smuggled Levi&#39;s jacket",
+        "pack": 205
+      },
+      {
+        "text": "A whispered conspiracy theory",
+        "pack": 205
+      },
+      {
+        "text": "A suspiciously friendly neighbor",
+        "pack": 205
+      },
+      {
+        "text": "A guard dog at the border",
+        "pack": 205
+      },
+      {
+        "text": "A loyalty oath to the Party",
+        "pack": 205
+      },
+      {
+        "text": "A Trabant breaking down again",
+        "pack": 205
+      },
+      {
+        "text": "A smuggled cassette tape",
+        "pack": 205
+      },
+      {
+        "text": "A bag full of Ostmarks",
+        "pack": 205
+      },
+      {
+        "text": "Bugging a telephone",
+        "pack": 205
+      },
+      {
+        "text": "Burning documents",
+        "pack": 205
+      },
+      {
+        "text": "Climbing the Berlin Wall",
+        "pack": 205
+      },
+      {
+        "text": "Defecting to the West",
+        "pack": 205
+      },
+      {
+        "text": "Denouncing a comrade",
+        "pack": 205
+      },
+      {
+        "text": "Destroying evidence",
+        "pack": 205
+      },
+      {
+        "text": "Escaping through a tunnel",
+        "pack": 205
+      },
+      {
+        "text": "Evading the Stasi",
+        "pack": 205
+      },
+      {
+        "text": "Faking loyalty",
+        "pack": 205
+      },
+      {
+        "text": "Forgetting your papers",
+        "pack": 205
+      },
+      {
+        "text": "Glorifying socialism",
+        "pack": 205
+      },
+      {
+        "text": "Hiding contraband",
+        "pack": 205
+      },
+      {
+        "text": "Informing on a neighbor",
+        "pack": 205
+      },
+      {
+        "text": "Interrogating a suspect",
+        "pack": 205
+      },
+      {
+        "text": "Jamming radio signals",
+        "pack": 205
+      },
+      {
+        "text": "Listening through the walls",
+        "pack": 205
+      },
+      {
+        "text": "Lying to the authorities",
+        "pack": 205
+      },
+      {
+        "text": "Manufacturing propaganda",
+        "pack": 205
+      },
+      {
+        "text": "Memorizing the Party line",
+        "pack": 205
+      },
+      {
+        "text": "Monitoring dissidents",
+        "pack": 205
+      },
+      {
+        "text": "Narrowly avoiding capture",
+        "pack": 205
+      },
+      {
+        "text": "Opening secret files",
+        "pack": 205
+      },
+      {
+        "text": "Patrolling the border",
+        "pack": 205
+      },
+      {
+        "text": "Printing forbidden books",
+        "pack": 205
+      },
+      {
+        "text": "Rationing food",
+        "pack": 205
+      },
+      {
+        "text": "Reading banned literature",
+        "pack": 205
+      },
+      {
+        "text": "Reporting suspicious behavior",
+        "pack": 205
+      },
+      {
+        "text": "Running from the border guards",
+        "pack": 205
+      },
+      {
+        "text": "Selling black market goods",
+        "pack": 205
+      },
+      {
+        "text": "Shredding classified documents",
+        "pack": 205
+      },
+      {
+        "text": "Signing a forced confession",
+        "pack": 205
+      },
+      {
+        "text": "Smuggling Western goods",
+        "pack": 205
+      },
+      {
+        "text": "Sneaking past the checkpoint",
+        "pack": 205
+      },
+      {
+        "text": "Spying on your friends",
+        "pack": 205
+      },
+      {
+        "text": "Surviving the interrogation",
+        "pack": 205
+      },
+      {
+        "text": "Tapping phone lines",
+        "pack": 205
+      },
+      {
+        "text": "Tearing down a poster",
+        "pack": 205
+      },
+      {
+        "text": "Tracking political dissidents",
+        "pack": 205
+      },
+      {
+        "text": "Trying to flee",
+        "pack": 205
+      },
+      {
+        "text": "Undergoing reeducation",
+        "pack": 205
+      },
+      {
+        "text": "Watching forbidden TV",
+        "pack": 205
+      },
+      {
+        "text": "Whispering in a café",
+        "pack": 205
+      },
+      {
+        "text": "Worshipping Karl Marx",
+        "pack": 205
+      },
+      {
+        "text": "Writing a secret letter",
+        "pack": 205
+      },
+      {
+        "text": "Writing an anonymous pamphlet",
+        "pack": 205
+      },
+      {
+        "text": "X-raying mail for contraband",
+        "pack": 205
+      },
+      {
+        "text": "Yielding to Party pressure",
+        "pack": 205
+      },
+      {
+        "text": "Zealously defending socialism",
+        "pack": 205
+      },
+      {
+        "text": "Accusing an enemy of the state",
+        "pack": 205
+      },
+      {
+        "text": "Arresting a dissident",
+        "pack": 205
+      },
+      {
+        "text": "Assembling in secret",
+        "pack": 205
+      },
+      {
+        "text": "Avoiding surveillance",
+        "pack": 205
+      },
+      {
+        "text": "Blackmailing a politician",
+        "pack": 205
+      },
+      {
+        "text": "Bribing a border guard",
+        "pack": 205
+      },
+      {
+        "text": "Bugging an apartment",
+        "pack": 205
+      },
+      {
+        "text": "Burning Western books",
+        "pack": 205
+      },
+      {
+        "text": "Changing identities",
+        "pack": 205
+      },
+      {
+        "text": "Circulating underground newspapers",
+        "pack": 205
+      },
+      {
+        "text": "Climbing the Berlin Wall",
+        "pack": 205
+      },
+      {
+        "text": "Confessing under duress",
+        "pack": 205
+      },
+      {
+        "text": "Cooperating with the Stasi",
+        "pack": 205
+      },
+      {
+        "text": "Covering up corruption",
+        "pack": 205
+      },
+      {
+        "text": "Crossing Checkpoint Charlie",
+        "pack": 205
+      },
+      {
+        "text": "Dealing in ration coupons",
+        "pack": 205
+      },
+      {
+        "text": "Defacing a propaganda poster",
+        "pack": 205
+      },
+      {
+        "text": "Defecting to West Germany",
+        "pack": 205
+      },
+      {
+        "text": "Destroying illegal documents",
+        "pack": 205
+      },
+      {
+        "text": "Disappearing overnight",
+        "pack": 205
+      },
+      {
+        "text": "Dodging the informants",
+        "pack": 205
+      },
+      {
+        "text": "Dying at the border",
+        "pack": 205
+      },
+      {
+        "text": "Editing party-approved news",
+        "pack": 205
+      },
+      {
+        "text": "Eliminating opposition",
+        "pack": 205
+      },
+      {
+        "text": "Erecting another statue of Lenin",
+        "pack": 205
+      },
+      {
+        "text": "Escaping through a sewer",
+        "pack": 205
+      },
+      {
+        "text": "Evading the secret police",
+        "pack": 205
+      },
+      {
+        "text": "Fabricating evidence",
+        "pack": 205
+      },
+      {
+        "text": "Faking loyalty to the Party",
+        "pack": 205
+      },
+      {
+        "text": "Fearing a knock on the door",
+        "pack": 205
+      },
+      {
+        "text": "Forgetting your identity card",
+        "pack": 205
+      },
+      {
+        "text": "Forging travel papers",
+        "pack": 205
+      },
+      {
+        "text": "Glorifying socialism",
+        "pack": 205
+      },
+      {
+        "text": "Harassing suspected spies",
+        "pack": 205
+      },
+      {
+        "text": "Hiding from the authorities",
+        "pack": 205
+      },
+      {
+        "text": "Hoarding Western goods",
+        "pack": 205
+      },
+      {
+        "text": "Identifying enemies of the state",
+        "pack": 205
+      },
+      {
+        "text": "Imprisoning intellectuals",
+        "pack": 205
+      },
+      {
+        "text": "Informing on a neighbor",
+        "pack": 205
+      },
+      {
+        "text": "Interrogating a journalist",
+        "pack": 205
+      },
+      {
+        "text": "Jailing a political enemy",
+        "pack": 205
+      },
+      {
+        "text": "Jamming Western radio signals",
+        "pack": 205
+      },
+      {
+        "text": "Laundering Party funds",
+        "pack": 205
+      },
+      {
+        "text": "Lining up for bread",
+        "pack": 205
+      },
+      {
+        "text": "Listening to Radio Free Europe",
+        "pack": 205
+      },
+      {
+        "text": "Lying to a Stasi officer",
+        "pack": 205
+      },
+      {
+        "text": "Manipulating public perception",
+        "pack": 205
+      },
+      {
+        "text": "Manufacturing fake reports",
+        "pack": 205
+      },
+      {
+        "text": "Memorizing party slogans",
+        "pack": 205
+      },
+      {
+        "text": "Monitoring telephone calls",
+        "pack": 205
+      },
+      {
+        "text": "Neutralizing dissent",
+        "pack": 205
+      },
+      {
+        "text": "Obeying without question",
+        "pack": 205
+      },
+      {
+        "text": "Opening secret police files",
+        "pack": 205
+      },
+      {
+        "text": "Overhearing a dangerous joke",
+        "pack": 205
+      },
+      {
+        "text": "Patrolling the border fence",
+        "pack": 205
+      },
+      {
+        "text": "Planting false evidence",
+        "pack": 205
+      },
+      {
+        "text": "Printing illegal flyers",
+        "pack": 205
+      },
+      {
+        "text": "Professing loyalty to the Party",
+        "pack": 205
+      },
+      {
+        "text": "Questioning your best friend",
+        "pack": 205
+      },
+      {
+        "text": "Ransacking an apartment",
+        "pack": 205
+      },
+      {
+        "text": "Rationing sugar and coffee",
+        "pack": 205
+      },
+      {
+        "text": "Reading banned literature",
+        "pack": 205
+      },
+      {
+        "text": "Recruiting new informants",
+        "pack": 205
+      },
+      {
+        "text": "Removing suspicious citizens",
+        "pack": 205
+      },
+      {
+        "text": "Reporting anti-socialist behavior",
+        "pack": 205
+      },
+      {
+        "text": "Rewriting history books",
+        "pack": 205
+      },
+      {
+        "text": "Running from border guards",
+        "pack": 205
+      },
+      {
+        "text": "Sabotaging state property",
+        "pack": 205
+      },
+      {
+        "text": "Scrawling graffiti on a wall",
+        "pack": 205
+      },
+      {
+        "text": "Searching for contraband",
+        "pack": 205
+      },
+      {
+        "text": "Selling information to the CIA",
+        "pack": 205
+      },
+      {
+        "text": "Shaking hands with the General Secretary",
+        "pack": 205
+      },
+      {
+        "text": "Shredding secret documents",
+        "pack": 205
+      },
+      {
+        "text": "Shooting at defectors",
+        "pack": 205
+      },
+      {
+        "text": "Signing a forced confession",
+        "pack": 205
+      },
+      {
+        "text": "Smashing a typewriter",
+        "pack": 205
+      },
+      {
+        "text": "Smuggling blue jeans",
+        "pack": 205
+      },
+      {
+        "text": "Sneaking a Western magazine",
+        "pack": 205
+      },
+      {
+        "text": "Spying on your own family",
+        "pack": 205
+      },
+      {
+        "text": "Stockpiling ration cards",
+        "pack": 205
+      },
+      {
+        "text": "Surveilling university students",
+        "pack": 205
+      },
+      {
+        "text": "Suspecting everyone",
+        "pack": 205
+      },
+      {
+        "text": "Tapping a telephone line",
+        "pack": 205
+      },
+      {
+        "text": "Tearing down a Party banner",
+        "pack": 205
+      },
+      {
+        "text": "Telling a joke about the General Secretary",
+        "pack": 205
+      },
+      {
+        "text": "Tracking political enemies",
+        "pack": 205
+      },
+      {
+        "text": "Trying to escape East Berlin",
+        "pack": 205
+      },
+      {
+        "text": "Undergoing ideological reeducation",
+        "pack": 205
+      },
+      {
+        "text": "Uprooting counter-revolutionaries",
+        "pack": 205
+      },
+      {
+        "text": "Using an underground tunnel",
+        "pack": 205
+      },
+      {
+        "text": "Voting with 99% approval",
+        "pack": 205
+      },
+      {
+        "text": "Watching Western television in secret",
+        "pack": 205
+      },
+      {
+        "text": "Whispering in a crowded room",
+        "pack": 205
+      },
+      {
+        "text": "Worshipping Karl Marx",
+        "pack": 205
+      },
+      {
+        "text": "Writing anonymous complaints",
+        "pack": 205
+      },
+      {
+        "text": "Writing fake news for the Party",
+        "pack": 205
+      },
+      {
+        "text": "X-raying packages for contraband",
+        "pack": 205
+      },
+      {
+        "text": "Yielding to Party pressure",
+        "pack": 205
+      },
+      {
+        "text": "Zealously defending communism",
+        "pack": 205
+      },
+      {
+        "text": "Accusifying",
+        "pack": 205
+      },
+      {
+        "text": "Bureaucratizing",
+        "pack": 205
+      },
+      {
+        "text": "Checkpointing",
+        "pack": 205
+      },
+      {
+        "text": "Comradesplaining",
+        "pack": 205
+      },
+      {
+        "text": "Defectomizing",
+        "pack": 205
+      },
+      {
+        "text": "Denunciating",
+        "pack": 205
+      },
+      {
+        "text": "Dictatoring",
+        "pack": 205
+      },
+      {
+        "text": "Disappearing",
+        "pack": 205
+      },
+      {
+        "text": "Eavesdropping",
+        "pack": 205
+      },
+      {
+        "text": "Eriching",
+        "pack": 205
+      },
+      {
+        "text": "Expropriating",
+        "pack": 205
+      },
+      {
+        "text": "File-shredding",
+        "pack": 205
+      },
+      {
+        "text": "Glorifying",
+        "pack": 205
+      },
+      {
+        "text": "Hoardinating",
+        "pack": 205
+      },
+      {
+        "text": "Ideologizing",
+        "pack": 205
+      },
+      {
+        "text": "Informanting",
+        "pack": 205
+      },
+      {
+        "text": "Interrogasmirking",
+        "pack": 205
+      },
+      {
+        "text": "Leninizing",
+        "pack": 205
+      },
+      {
+        "text": "Listening",
+        "pack": 205
+      },
+      {
+        "text": "Loyalizing",
+        "pack": 205
+      },
+      {
+        "text": "Marxificating",
+        "pack": 205
+      },
+      {
+        "text": "Memorizing",
+        "pack": 205
+      },
+      {
+        "text": "Nationalizing",
+        "pack": 205
+      },
+      {
+        "text": "Obediencing",
+        "pack": 205
+      },
+      {
+        "text": "Overreporting",
+        "pack": 205
+      },
+      {
+        "text": "Paranoifying",
+        "pack": 205
+      },
+      {
+        "text": "Passporting",
+        "pack": 205
+      },
+      {
+        "text": "Permitting",
+        "pack": 205
+      },
+      {
+        "text": "Propagandizing",
+        "pack": 205
+      },
+      {
+        "text": "Queueing",
+        "pack": 205
+      },
+      {
+        "text": "Rationing",
+        "pack": 205
+      },
+      {
+        "text": "Redwashing",
+        "pack": 205
+      },
+      {
+        "text": "Reeducating",
+        "pack": 205
+      },
+      {
+        "text": "Registering",
+        "pack": 205
+      },
+      {
+        "text": "Revolutionizing",
+        "pack": 205
+      },
+      {
+        "text": "Saluting",
+        "pack": 205
+      },
+      {
+        "text": "Secretpolicing",
+        "pack": 205
+      },
+      {
+        "text": "Shadowing",
+        "pack": 205
+      },
+      {
+        "text": "Shaming",
+        "pack": 205
+      },
+      {
+        "text": "Snooping",
+        "pack": 205
+      },
+      {
+        "text": "Socialisting",
+        "pack": 205
+      },
+      {
+        "text": "Speechcoding",
+        "pack": 205
+      },
+      {
+        "text": "Statuefying",
+        "pack": 205
+      },
+      {
+        "text": "Stasilurking",
+        "pack": 205
+      },
+      {
+        "text": "Surveilling",
+        "pack": 205
+      },
+      {
+        "text": "Suspecting",
+        "pack": 205
+      },
+      {
+        "text": "Tattling",
+        "pack": 205
+      },
+      {
+        "text": "Thoughtpolicing",
+        "pack": 205
+      },
+      {
+        "text": "Tunnel-digging",
+        "pack": 205
+      },
+      {
+        "text": "Unpersoning",
+        "pack": 205
+      },
+      {
+        "text": "Vote-stuffing",
+        "pack": 205
+      },
+      {
+        "text": "Wallfortifying",
+        "pack": 205
+      },
+      {
+        "text": "Whisperdodging",
+        "pack": 205
+      }
+    ],
+    "black": [
+      {
+        "text": "The Stasi recently uncovered a secret plot involving _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "To maintain order, the DDR government has outlawed _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "While the West had Coca-Cola, East Germans had _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Newly released Stasi files reveal that _ was more widespread than previously thought.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "East Berlin&#39;s hottest underground club is _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, you have been accused of _. How do you plead?",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In the DDR, we don&#39;t have capitalism. We have _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Welcome to the Workers&#39; Paradise! Here, everyone enjoys _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "To cross the Berlin Wall, one must first get past _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Rumor has it Erich Honecker&#39;s private bunker was filled with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has eyes everywhere. You can&#39;t even _ without being watched.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "At the latest party meeting, it was decided that _ will be the new national policy.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "We regret to inform you that your application to leave the DDR has been denied due to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The People&#39;s Police recently arrested someone for _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Today&#39;s lesson in Marxist-Leninist ethics will focus on _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The DDR&#39;s latest five-year plan prioritizes _ above all else.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "All hail our glorious leader! Long may he bring us _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "While the West indulges in decadence, we in the DDR proudly embrace _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The only way to escape the DDR is through _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Checkpoint Charlie is closed today due to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A true socialist must be willing to sacrifice _ for the greater good.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The latest crackdown has made _ illegal.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Under socialism, we no longer suffer from _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Ministry of State Security has launched a new initiative against _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Western spies have infiltrated the DDR, spreading dangerous ideas about _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Soviet Union has gifted East Germany a generous supply of _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "To test your loyalty, please write a detailed report on _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In response to capitalist propaganda, the government has issued a mandatory training session on _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi recently uncovered a secret plot involving _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, your loyalty to the Party is unquestionable, but we need to talk about your involvement in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been summoned by the Stasi for questioning about your suspicious _ activities.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party has decided that you must be re-educated for _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In the most recent propaganda video, the people are told to beware of _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Berlin Wall fell, but only because the Stasi was secretly building _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "After years of surveillance, the Stasi uncovered that you&#39;ve been hoarding _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Ministry of State Security has confirmed that you&#39;ve been secretly listening to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your defection to the West was foiled when the Stasi intercepted your plan to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "If the Party discovers you&#39;ve been _, there will be severe consequences.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been summoned to the Ministry of Truth to explain why you&#39;ve been writing _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In a recent interrogation, it was revealed that you&#39;ve been smuggling _ into East Berlin.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your neighbor, who works for the Stasi, reported you for _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has been monitoring your every move, and now they suspect you of _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party&#39;s greatest fear is that you&#39;ve been secretly _ without authorization.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, your loyalty is now questioned due to your suspicious interest in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has evidence of your underground radio broadcasts of _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been spotted attending a forbidden gathering about _, and now the Stasi is investigating.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "It&#39;s clear the Party doesn&#39;t approve of your recent obsession with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The most recent Stasi report says that you&#39;ve been acting suspiciously by _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A traitor has been exposed: they were caught smuggling _ out of East Germany.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Rumor has it you&#39;ve been attempting to escape via _, but the Stasi is one step ahead.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party has been monitoring your every word, and now they are concerned about your views on _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In your latest confession, you admitted to _, and now you face severe punishment.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has tapped your phone line and found evidence of your secret admiration for _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The latest Party report warns about a new underground movement called _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "If you&#39;re caught again, the Party may send you to _ for re-education.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "It&#39;s clear that the secret police have evidence of your illegal involvement in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In the latest edition of the Party&#39;s newspaper, _ is denounced as an act of betrayal.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "During your interrogation, you were caught trying to bribe an officer with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party believes your recent behavior involving _ may be a sign of rebellion.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has traced your secret communications about _, and now they&#39;re watching you closely.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your forced confession was so convincing, but they still don&#39;t believe you weren&#39;t involved in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In a shocking turn of events, you&#39;ve been found guilty of secretly _ during your time in the Party.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi recently uncovered your attempt to _ using a hidden tunnel to West Berlin.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been labeled an enemy of the people due to your support for _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party has decided to intervene after your “accidental” attempts to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "During your latest interrogation, you inadvertently admitted to _, making it harder to deny.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party will not stand for any _, and they&#39;re coming for you next.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Ministry of State Security has intercepted your _ letters to the West.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The only way to escape the wrath of the Stasi is to confess your involvement in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your loyalty to the state has been questioned after reports surfaced that you&#39;ve been _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi has planted _ in your house, and they&#39;re waiting for you to slip up.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A recent investigation into your activities uncovered your shocking involvement in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your family has been accused of being traitors due to their connection to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "There&#39;s a new law in the Party, forbidding _ under any circumstances.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, you&#39;ve been called in for questioning regarding your unusual obsession with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "We&#39;ve received reports that you&#39;ve been passing information about _ to the West.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been caught trying to smuggle _ across the border. Your fate is uncertain.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your file is under investigation after it was revealed that you&#39;ve been secretly _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party has placed you on the blacklist for your suspicious activities involving _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "It seems your idea of “revolutionary progress” involves a little too much _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A recent wiretap has exposed your plan to _ using state resources.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party has decided to assign you a re-education camp, but only after you explain why you were found with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been marked as a potential threat to the regime after your activities involving _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi believes you may be hiding a stash of _, and they&#39;re about to search your house.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "After an unexpected raid, you were found with contraband _ that the Party strictly forbids.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A report has surfaced claiming that you&#39;ve been attempting to escape East Germany by _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The latest Party directive warns that anyone caught involved in _ will face immediate punishment.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "During your last loyalty test, you were caught suggesting that the Party was wrong about _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi is aware of your secret love for _, and they&#39;ve placed you under surveillance.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "After a failed escape attempt, the Stasi found you trying to flee to the West with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Ministry of Internal Affairs has uncovered a conspiracy involving you and _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Rumor has it you&#39;ve been secretly exchanging information about _ with outsiders.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been spotted at a forbidden gathering discussing _, and now the Stasi is after you.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Party suspects you&#39;ve been conspiring with foreign powers to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In a shocking betrayal, your best friend was caught trying to smuggle _ through the checkpoint.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been identified as a possible counter-revolutionary due to your interest in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi intercepted your coded messages, and they suspect you&#39;ve been working on _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your secret radio station broadcasts forbidden _ to the people, and now the authorities are listening.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been under suspicion ever since your unauthorized trip to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "An anonymous tip has accused you of participating in _ with the enemies of the state.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your attempt to escape through the sewers was foiled when you were caught with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "In your forced confession, you revealed that you were plotting to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi found evidence that you&#39;ve been stockpiling _ in your apartment.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "You&#39;ve been deemed a \"non-comrade\" after suggesting that _ might not be the best approach.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "A mole within your group reported you for your involvement in _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The latest issue of the Party magazine features an exposé on your secret work with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "After extensive surveillance, the Stasi uncovered your plot to _ in broad daylight.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your forced confession detailed your involvement in the conspiracy to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi is conducting a full investigation after discovering your secret stash of _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, we have your confession on record, but the Party still demands to know why you&#39;ve been involved with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Reports have surfaced that you&#39;ve been attempting to overthrow the Party by _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Ministry of State Security has received a tip-off about your secret meetings with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Your reputation as a loyal Party member is now in jeopardy due to your association with _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "The Stasi intercepted a letter to your family, revealing your plans to _.",
+        "pick": 1,
+        "pack": 205
+      },
+      {
+        "text": "Comrade, we&#39;ve been informed of your suspicious actions involving _.",
+        "pick": 1,
+        "pack": 205
+      }
+    ],
+    "official": false
   }
 ]
