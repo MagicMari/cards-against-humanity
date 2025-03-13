@@ -168,7 +168,7 @@ function round() {
 
 function drawCard() {
     if (blackCards.length === 0) {
-      blackCards = shuffle([...BLACK_CARDS]); // Reshuffle when empty
+      socket.emit('game_has_ended', {roomID: roomID});
     }
     console.log("Pop return:", blackCards.pop());
     return blackCards.pop(); 
