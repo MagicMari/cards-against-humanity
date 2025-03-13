@@ -107,6 +107,13 @@ socket.on('game_ended', () => {
   window.location.href = '/end#' + roomID + '#Host';
 })
 
+socket.on('updatePlayerCount', (data) => {
+  noPlayers = data.newPlayerCOunt;
+  if(noPlayers == 0){
+    socket.emit('game_has_ended', {roomID: roomID});
+  }
+})
+
 socket.on('no_connected', (data) => {
   // incrementing dispaly
   $playerCount.innerText = parseInt($playerCount.innerText) + 1;

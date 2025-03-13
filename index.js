@@ -80,6 +80,13 @@ io.sockets.on('connection', (socket) => {
     // console.log(roomInfo)
   })
 
+  socket.on('player_disconnect', (data) => {
+    console.log("Updated user count:", roomInfo[data.roomID]['userCount'])
+    roomInfo[data.roomID]['userCount']--
+    delete roomInfo[data.roomID]['usersConnected'][data.playerID]
+    io.to(roomInfo[data.roomID]['hostID']).emit('updatePlayerCount', {newPlayerCOunt: roomInfo[data.roomID]['userCount']})
+  })
+
 
   socket.on('start_game', (data) => {
     //console.log('Start game')

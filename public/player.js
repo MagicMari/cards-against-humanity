@@ -23,6 +23,11 @@ var playerList = [];
 // Join room
 socket.emit('join:room', { roomID: roomID, role: 'player' });
 
+window.addEventListener("beforeunload", (event) => {
+  console.log("User is closing, leaving, or reloading the page...");
+  socket.emit('player_disconnect', {roomID: roomID, playerID: socket.id})
+});
+
 // Start game event
 socket.on('start_game', () => {
   $pregame.style.display = 'none';
@@ -62,7 +67,7 @@ function round() {
   $handCards.innerHTML = '';
 
   //var whiteCards = shuffle([...WHITE_CARDS]);
-  for(let i = handCards.length;  i < 6; i++){
+  for(let i = handCards.length;  i < 10; i++){
     handCards.push(drawCard());
   }
   //handCards = whiteCards.splice(0, 6);
