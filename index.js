@@ -191,25 +191,29 @@ io.sockets.on('connection', (socket) => {
   }))
 
   function isUsernameAvailable(username, roomID) {
-    console.log('Checking')
+    console.log('Checking', username)
     // Username validation: only letters and numbers, no spaces or special characters
     if (!/^[a-zA-Z0-9]+$/.test(username)) {
-        return false
+      console.log("Special Characters:", username)
+      return false
     }
   
     // Check if the room exists
     if (!(roomID in rooms)) {
+      console.log("Room exist:", username)
       Object.assign(rooms, {[roomID]:[username]})
       return true
     }
-  
+    
+    var compareNames = true
     rooms[roomID].forEach(player => {
       console.log('Comparing', player.toLowerCase(),'with:', username.toLowerCase())
       if((player.toLowerCase()) === (username.toLowerCase())) {
         console.log('Returning False')
-        return false
+        compareNames = false
       }
     })
+    return compareNames
   }
 
   function addPlayerScore(roomID, playerName, newScore) {
@@ -243,7 +247,7 @@ io.sockets.on('connection', (socket) => {
         delete roomInfo[room]
         delete rooms[room]
 
-        io.sockets.in(room).emit('error', {message: "The fucking host disconnected"})
+        io.sockets.in(room).emit('error', {message: "The host disconnected"})
       }
     })
 
