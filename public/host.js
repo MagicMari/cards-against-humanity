@@ -80,6 +80,7 @@ socket.on("connect", () => {
 socket.on('recieve_black_cards', (data) => {
   BLACK_CARDS = data.blackCards;
   console.log(BLACK_CARDS)
+  blackCards = shuffle([...BLACK_CARDS]);
   round();
 })
 
