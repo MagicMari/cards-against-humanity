@@ -8,6 +8,7 @@ const cards = new all_cards()
 let players = {}
 
 let packsForRooms = {}
+const rooms = {};
 
 const official_packs = cards.getAllOfficialPacks()
 const community_packs = cards.getAllCommunityPacks()
@@ -180,6 +181,37 @@ io.sockets.on('connection', (socket) => {
     io.to(data.hostID).emit('community_packs', {packs: community_packs})
   })
 
+  socket.on('check_name', (data => {
+    var isAllowed = isUsernameAvailable(data.name, data.roomID)
+    if(isAllowed == true) {
+      io.to(data.clientID).emit('allow_name', {})
+    } else {
+      io.to(data.clientID).emit('disallow_name', {})
+    }
+  }))
+
+  function isUsernameAvailable(username, roomID) {
+    console.log('Checking')
+    // Username validation: only letters and numbers, no spaces or special characters
+    if (!/^[a-zA-Z0-9]+$/.test(username)) {
+        return false
+    }
+  
+    // Check if the room exists
+    if (!(roomID in rooms)) {
+      Object.assign(rooms, {[roomID]:[username]})
+      return true
+    }
+  
+    rooms[roomID].forEach(player => {
+      console.log('Comparing', player.toLowerCase(),'with:', username.toLowerCase())
+      if((player.toLowerCase()) === (username.toLowerCase())) {
+        console.log('Returning False')
+        return false
+      }
+    })
+  }
+
   function addPlayerScore(roomID, playerName, newScore) {
     // Ensure the room exists
     if (!players[roomID]) {
@@ -209,6 +241,7 @@ io.sockets.on('connection', (socket) => {
       if (id == roomInfo[room].hostID) {
         //console.log('Deleting room ', room)
         delete roomInfo[room]
+        delete rooms[room]
 
         io.sockets.in(room).emit('error', {message: "The fucking host disconnected"})
       }

@@ -41,7 +41,21 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
+
+        socket.on('allow_name', () => {
+            allowJoin();
+        })
+        socket.on('disallow_name', () => {
+            alert("Name not permitted. Only characters from aA-zZ and number. Spaces not allowed.");
+        })
+
         function joinRoom() {
+            let roomCode = document.getElementById("roomCode").value.trim();
+            let name = document.getElementById("playerName").value.trim();
+            socket.emit('check_name', {roomID: roomCode, name: name, clientID: socket.id});
+        }
+
+        function allowJoin() {
             let roomCode = document.getElementById("roomCode").value.trim();
             let name = document.getElementById("playerName").value.trim();
             if (roomCode) {

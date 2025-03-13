@@ -18,6 +18,8 @@ let playerName = location.hash.split('#')[2];
 let players = {}; // Object to store player names & scores
 let $scoreList = document.querySelector('#score_list');
 var playerList = [];
+let maxSelections = 2; // Set how many cards can be chosen
+let selectedCards = []; // Stores selected cards
 
 
 // Join room
