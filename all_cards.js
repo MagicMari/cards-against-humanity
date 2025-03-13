@@ -20,6 +20,11 @@ class all_cards {
             i++;
         }
     }
+
+    replaceUnderscores(input) {
+        let count = 0;
+        return input.replace(/_/g, () => `_${++count}_`);
+    }
     
     getAllOfficialPacks() {
         let i = 0;
@@ -75,6 +80,8 @@ class all_cards {
             currentCards.forEach(card => {
                 if(card['pick'] == 1) {
                     blackCards.push(card['text'])
+                } else {
+                    var replacedCard = this.replaceUnderscores(card['text'])
                 }
             })
         });

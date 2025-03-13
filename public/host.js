@@ -24,8 +24,8 @@ let blackCards = shuffle([...BLACK_CARDS]);
 
 // other info
 var noPlayers;
-var whiteCardsReceived = [];
-var whiteCardsPlayer = [];
+var numberOfCardsToPick = 1;
+var choosenWhiteCards = []
 
 var socket = io();
 let roomID = Math.random().toString(36).substring(2);
@@ -134,6 +134,14 @@ socket.on('all_players', (data) => {
   })
 })
 
+function getHighestNumber(input) {
+  const matches = input.match(/_(\d+)_/g); // Find all "_X_" patterns
+  if (!matches) return 1; // If no matches, return 0
+
+  const numbers = matches.map(match => parseInt(match.match(/\d+/)[0])); // Extract numbers
+  return Math.max(...numbers); // Get the highest number
+}
+
 
 // called every round
 function round() {
@@ -142,8 +150,7 @@ function round() {
   console.log(roomID);
   socket.emit('start_game', {roomID: roomID}); // alerts players to start round()
   // reset data from previous rounds
-  whiteCardsReceived = [];
-  whiteCardsPlayer = [];
+  choosenWhiteCards = [];
 
   hideElement($pregame);
   hideElement($roundEnd);
@@ -155,7 +162,8 @@ function round() {
 
   let newBlackCard = drawCard();
   $blackCard.innerHTML = newBlackCard;
-  socket.emit('blackCard', {roomID: roomID, blackCard: newBlackCard});
+  numberOfCardsToPick = getHighestNumber(newBlackCard);
+  socket.emit('blackCard', {roomID: roomID, blackCard: newBlackCard, pick: numberOfCardsToPick});
 }
 
 function drawCard() {
@@ -167,18 +175,17 @@ function drawCard() {
 }
 
 socket.on('card_chosen', (data) => {
-  whiteCardsReceived.push(data.card);
-  whiteCardsPlayer.push(data.player);
-  if (whiteCardsReceived.length == noPlayers) {
-    for (i=0; i<whiteCardsReceived.length; i++) {
+  choosenWhiteCards.push({'player': data.player, 'card': data.card});
+  if (choosenWhiteCards.length == (noPlayers * numberOfCardsToPick)) {
+    for (i=0; i<choosenWhiteCards.length; i++) {
       // whiteCardsRec[i] is already escaped
       $whiteCards.innerHTML += `
-        <div id=${whiteCardsPlayer[i]}
+        <div id=${choosenWhiteCards[i]['player'] + i}
           class="card selected-text bg-white text-black p-4 rounded-lg hover:bg-gray-200 border-4 flex flex-col justify-center items-center text-center"
-          onclick='selectWhiteCard(this, "${whiteCardsReceived[i]}")'
-        > <span class="card-text">${unescape(whiteCardsReceived[i])}</span>
+          onclick='selectWhiteCard(this, "${choosenWhiteCards[i]['card']}")'
+        > <span class="card-text">${unescape(choosenWhiteCards[i]['card'])}</span>
 
-        <p id=player class=opacity-50 block text-sm font-bold mb-2 card-text>${whiteCardsPlayer[i]} </p>
+        <p id=player class=opacity-50 block text-sm font-bold mb-2 card-text>${choosenWhiteCards[i]['player']} </p>
         </div>
       `;
     }
