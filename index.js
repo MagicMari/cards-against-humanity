@@ -83,11 +83,13 @@ io.sockets.on('connection', (socket) => {
 
   socket.on('player_disconnect', (data) => {
     if(roomInfo[data.roomID] != undefined) {
-      console.log("Updated user count:", roomInfo[data.roomID]['userCount'])
-      roomInfo[data.roomID]['userCount']--
-      delete roomInfo[data.roomID]['usersConnected'][data.playerID]
-      console.log(roomInfo[data.roomID]['userCount'])
-      io.to(roomInfo[data.roomID]['hostID']).emit('updatePlayerCount', {newPlayerCOunt: roomInfo[data.roomID]['userCount']})
+      if(data.playerID in (roomInfo[data.roomID]['usersConnected'])) {
+        console.log("Updated user count:", roomInfo[data.roomID]['userCount'])
+        roomInfo[data.roomID]['userCount']--
+        delete roomInfo[data.roomID]['usersConnected'][data.playerID]
+        console.log(roomInfo[data.roomID]['userCount'])
+        io.to(roomInfo[data.roomID]['hostID']).emit('updatePlayerCount', {newPlayerCOunt: roomInfo[data.roomID]['userCount']})
+      }
     }
   })
 
