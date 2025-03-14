@@ -26,6 +26,8 @@ let selectedCards = []; // Stores selected cards
 socket.emit('join:room', { roomID: roomID, role: 'player' });
 
 window.addEventListener("beforeunload", (event) => {
+  event.preventDefault();
+  event.returnValue = "";
   console.log("User is closing, leaving, or reloading the page...");
   socket.emit('player_disconnect', {roomID: roomID, playerID: socket.id})
 });

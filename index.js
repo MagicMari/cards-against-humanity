@@ -60,7 +60,7 @@ io.sockets.on('connection', (socket) => {
           }
         } else {
           //console.log('GAME ALREADY STARTED')
-          io.sockets.in(data.roomID).emit('error', {message: "This game has already started."})
+          io.to(socket.conn.id).emit('error', {message: "This game has already started."})
         }
       } catch {
         //console.log('Room does not exist')
@@ -86,6 +86,7 @@ io.sockets.on('connection', (socket) => {
       console.log("Updated user count:", roomInfo[data.roomID]['userCount'])
       roomInfo[data.roomID]['userCount']--
       delete roomInfo[data.roomID]['usersConnected'][data.playerID]
+      console.log(roomInfo[data.roomID]['userCount'])
       io.to(roomInfo[data.roomID]['hostID']).emit('updatePlayerCount', {newPlayerCOunt: roomInfo[data.roomID]['userCount']})
     }
   })

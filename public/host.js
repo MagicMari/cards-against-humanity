@@ -110,7 +110,9 @@ socket.on('game_ended', () => {
 
 socket.on('updatePlayerCount', (data) => {
   noPlayers = data.newPlayerCOunt;
-  if(noPlayers == 0){
+  console.log('New Player Count:', noPlayers);
+  if(noPlayers === 0){
+    console.log('Ending game');
     socket.emit('game_has_ended', {roomID: roomID});
   }
 })
