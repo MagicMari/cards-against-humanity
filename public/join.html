@@ -37,12 +37,25 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+        //let roomCode = location.hash.split('#')[1];
         var socket = io();
+        socket.on('allow_name', () => {
+            allowJoin();
+        })
+        socket.on('disallow_name', () => {
+            alert("Name not permitted. Only characters from aA-zZ and number. Spaces not allowed.");
+        })
+
         function joinRoom() {
             let roomCode = location.hash.split('#')[1];
             let name = document.getElementById("playerName").value.trim();
+            socket.emit('check_name', {roomID: roomCode, name: name, clientID: socket.id});
+        }
+
+        function allowJoin() {
+            let roomCode = location.hash.split('#')[1];
+            let name = document.getElementById("playerName").value.trim();
             if (roomCode) {
-                //console.log("Player name: ", name);
                 socket.emit('playerJoin', {roomID: roomCode, playerName: name});
                 window.location.href = `/player#${roomCode}#${name}`;
             } else {
